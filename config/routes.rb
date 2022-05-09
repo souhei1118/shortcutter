@@ -12,8 +12,11 @@ devise_for :users,skip: [:passwords], controllers: {
 }
 
 # ユーザー側のルーティング
-  namespace :public do
-    # get 'homes/top'
+  scope module: :public do
+    patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
+    get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+    resources :users,only: [:show, :edit, :update ] do
+    end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
