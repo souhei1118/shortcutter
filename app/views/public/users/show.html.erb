@@ -1,4 +1,8 @@
 <h1>ここは<%= current_user.nickname %>のマイページ</h1>
+<div>
+  <p><%= image_tag @user.get_profile_image(100,100) %></p>
+  ユーザー画像
+</div>
 <%= link_to "プロフィールを編集する", edit_user_path(@user) %>
 
 <div>

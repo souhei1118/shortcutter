@@ -17,6 +17,20 @@ devise_for :users,skip: [:passwords], controllers: {
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     resources :users,only: [:show, :edit, :update ] do
     end
+
+    resources :shortcuts,only: [:index, :show ] do
+    end
+  end
+
+  # 管理者側のルーティング
+  namespace :admin do
+    root "homes#top"
+
+    resources :users,only: [:index, :show, :edit, :update ] do
+    end
+
+    resources :shortcuts do
+    end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
