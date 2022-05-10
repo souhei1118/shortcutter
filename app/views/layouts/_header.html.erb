@@ -1,2 +1,15 @@
+<% if current_user.present? %>
+    <li>
+      ようこそ、<%= current_user.nickname %>さん！
+    </li>
+    <li>
+      <%= link_to user_path(current_user) do %>
+        マイページ
+      <% end %>
+    </li>
+<% end %>
 <%= link_to "新規登録", new_user_registration_path %>
-<%= link_to "ログイン", new_user_session_path %>
+<%= link_to "ログイン", root_path %>
+<%= link_to destroy_user_session_path, method: :delete do %>
+  ログアウト
+<% end %>

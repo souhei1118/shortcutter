@@ -1,2 +1,12 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<h1>ここは<%= current_user.nickname %>のマイページ</h1>
+<%= link_to "プロフィールを編集する", edit_user_path(@user) %>
+
+<div>
+  ニックネーム<p><%= @user.nickname %></p>
+</div>
+<div>
+  メールアドレス<p><%= @user.email %></p>
+</div>
+<div>
+  退会する方は　<span><%= link_to "こちら", unsubscribe_path %></span>　をクリック
+</div>
