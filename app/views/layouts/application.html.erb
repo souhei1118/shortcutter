@@ -15,18 +15,18 @@
   <body>
     <%= render 'layouts/header' %>
     <% if notice %>
-      	<div>
-      	  <span id="notice"><%= notice %></span>
-      	</div>
-      <% elsif flash[:success] %>
-      	<div>
-        	<span id="success"><%= flash[:success] %></span>
-      	</div>
-      <% elsif flash[:alert] %>
-      	<div>
-      	  <span id="alert"><%= flash[:alert] %></span>
-      	</div>
-      <% end %>
+    	<div>
+    	  <span id="notice"><%= notice %></span>
+    	</div>
+    <% elsif flash[:success] %>
+    	<div class="alert alert-success">
+      	<span id="success"><%= flash[:success] %></span>
+    	</div>
+    <% elsif flash[:alert] %>
+    	<div class="alert alert-danger">
+    	  <span id="alert"><%= flash[:alert] %></span>
+    	</div>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>

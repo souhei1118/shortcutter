@@ -7,6 +7,9 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
   validates :email, presence: true
 
+  has_many :bookmarks, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   has_one_attached :profile_image
 
   def get_profile_image(width, height)

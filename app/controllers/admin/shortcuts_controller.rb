@@ -4,7 +4,7 @@ class Admin::ShortcutsController < ApplicationController
   end
 
   def create
-    @shortcut = Shortcut.new(item_params)
+    @shortcut = Shortcut.new(shortcut_params)
     if @shortcut.save
       redirect_to admin_shortcut_path(@shortcut.id)
     else
@@ -17,12 +17,22 @@ class Admin::ShortcutsController < ApplicationController
   end
 
   def show
+    @shortcut = Shortcut.find(params[:id])
   end
 
   def edit
+    @shortcut = Shortcut.find(params[:id])
   end
 
   def update
+    @shortcut = Shortcut.find(params[:id])
+    if @shortcut.update(shortcut_params)
+      redirect_to admin_shortcut_path
+      flash[:success] = "ショートカット情報を更新しました"
+    else
+      @shortcut = Shortcut.find(params[:id])
+      render 'edit'
+    end
   end
 
   def destroy
