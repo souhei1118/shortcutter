@@ -1,0 +1,16 @@
+<h1>ここは<%= current_user.nickname %>のマイページ</h1>
+<div>
+  <p><%= image_tag @user.get_profile_image(100,100) %></p>
+  ユーザー画像
+</div>
+<%= link_to "プロフィールを編集する", edit_user_path(@user) %>
+
+<div>
+  ニックネーム<p><%= @user.nickname %></p>
+</div>
+<div>
+  メールアドレス<p><%= @user.email %></p>
+</div>
+<div>
+  退会する方は　<span><%= link_to "こちら", unsubscribe_path %></span>　をクリック
+</div>

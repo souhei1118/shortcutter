@@ -1,0 +1,21 @@
+<h1>ここはユーザーのTOP画面</h1>
+
+<h2>ログイン</h2>
+<% unless user_signed_in? %>
+  <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+    <div class="field">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, placeholder:"email" %>
+    </div>
+    <div class="field">
+      <%= f.label :パスワード %><br />
+      <%= f.password_field :password, placeholder:"password" %>
+    </div>
+    <div>
+      <%= f.submit "ログイン" %>
+    </div>
+    <div>
+      会員登録がお済みでない方は　<span><%= link_to "こちら", new_user_registration_path %></span>　から新規登録してください
+    </div>
+  <% end %>
+<% end %>
