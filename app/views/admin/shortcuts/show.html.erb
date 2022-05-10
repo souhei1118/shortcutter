@@ -1,1 +1,16 @@
 <h1>管理者ショートカット詳細画面</h1>
+<div>
+  <p><%= image_tag @shortcut.get_shortcut_image(100,100) %></p>
+</div>
+<div>
+  ショートカット名
+  <%= @shortcut.name %>
+</div>
+<div>
+  コマンド
+  <%= @shortcut.key %>
+</div>
+<div>
+  カテゴリ：<%= @shortcut.category.name %>
+</div>
+<%= link_to "このショートカットを編集する", edit_admin_shortcut_path(@shortcut) %>

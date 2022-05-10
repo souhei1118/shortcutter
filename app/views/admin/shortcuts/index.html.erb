@@ -1,4 +1,36 @@
 <h1>管理者ショートカット一覧画面</h1>
 <div>
-  <%= link_to "新規商品登録", new_admin_shortcut_path %>
+  <%= link_to "新規ショートカットキー登録", new_admin_shortcut_path %>
 </div>
+<% if @shortcuts.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>ショートカット名</th>
+        <th>コマンド</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shortcuts.each do |shortcut| %>
+      <tr>
+        <td>
+          <%= link_to admin_shortcut_path(shortcut.id) do %>
+            <%= shortcut.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= shortcut.key %>
+        </td>
+        <td>
+          <!--いいね数</br>-->
+          <!--コメント数</br>-->
+          <!--使用頻度-->
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+  <p>ショートカットキーがまだ登録されていません。</p>
+<% end %>

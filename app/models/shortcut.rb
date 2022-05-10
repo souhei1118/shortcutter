@@ -1,5 +1,13 @@
 class Shortcut < ApplicationRecord
+  has_many :bookmarks, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  belongs_to :category
+
   has_one_attached :shortcut_image
+
+  def bookmarked_by?(user)
+    bookmarks.exists?(user_id: user.id)
+  end
 
   def get_shortcut_image(width, height)
     unless shortcut_image.attached?
