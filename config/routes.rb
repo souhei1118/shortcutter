@@ -16,11 +16,18 @@ devise_for :users,skip: [:passwords], controllers: {
     patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     resources :users,only: [:show, :edit, :update ] do
+      member do
+        get '/bookmarks' => 'bookmarks#index'
+      end
+
     end
 
     resources :shortcuts,only: [:index, :show ] do
+      member do
+        get '/bookmarks' => 'bookmarks#index'
+      end
       resources :comments, only: [:create]
-      resource :bookmarks, only: [:create, :destroy, :index ]
+      resource :bookmarks, only: [:create, :destroy ]
     end
   end
 
