@@ -1,5 +1,5 @@
 <h1>ユーザー用ショートカット一覧画面</h1>
-<%#= link_to "ブックマークしたショートカットを見る", bookmarks_user_path %>
+<%= link_to "ブックマークしたショートカットを見る", bookmarks_user_path(current_user.id) %>
 <% if @shortcuts.present? %>
   <table>
     <thead>
@@ -21,8 +21,8 @@
           <%= shortcut.key %>
         </td>
         <td>
-          <!--いいね数</br>-->
-          <!--コメント数</br>-->
+          ブックマーク登録人数:<%= shortcut.bookmarks.count %>人</br>
+          コメント件数：<%= shortcut.comments.count %></br>
           <!--使用頻度-->
         </td>
       </tr>

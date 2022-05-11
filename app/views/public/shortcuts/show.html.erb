@@ -42,3 +42,21 @@
   </tbody>
 </table>
 <%= link_to "戻る",shortcuts_path %>
+<div>
+  <%= form_with model: [@shortcut, @comment] do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
+コメント一覧(<%= @shortcut.comments.count %>件)</br>
+<% @shortcut.comments.each do |comment| %>
+    <p>
+      <%= image_tag comment.user.get_profile_image(100,100) %>
+      ニックネーム:<%= comment.user.nickname %>さん
+      <%= comment.comment %>
+      <% if comment.user == current_user %>
+      <%= link_to "このコメントを削除", shortcut_comment_path(comment.shortcut, comment), method: :delete,data: {confirm: "本当に削除しますか？"} %>
+    <% end %>
+    </p>
+  <% end %>
+</div>

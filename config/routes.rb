@@ -23,10 +23,7 @@ devise_for :users,skip: [:passwords], controllers: {
     end
 
     resources :shortcuts,only: [:index, :show ] do
-      member do
-        get '/bookmarks' => 'bookmarks#index'
-      end
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy ]
       resource :bookmarks, only: [:create, :destroy ]
     end
   end
