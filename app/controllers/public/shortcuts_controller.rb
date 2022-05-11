@@ -4,7 +4,7 @@ class Public::ShortcutsController < ApplicationController
   end
 
   def show
-    @shortcuts = Shortcut.find(params[:id])
+    @shortcut = Shortcut.find(params[:id])
     @comment = Comment.new
   end
 end

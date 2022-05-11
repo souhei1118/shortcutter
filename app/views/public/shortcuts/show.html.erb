@@ -1,1 +1,43 @@
 <h1>ユーザー用ショートカットキー詳細画面</h1>
+<div>
+  <p><%= image_tag @shortcut.get_shortcut_image(100,100) %></p>
+</div>
+<div>
+  ショートカット名
+  <%= @shortcut.name %>
+</div>
+<div>
+  コマンド
+  <%= @shortcut.key %>
+</div>
+
+<table>
+  <thaed>
+    <tr>
+      <th>ショートカット名</th>
+      <th>コマンド</th>
+      <th>ブックマークに登録</th>
+    </tr>
+  </thaed>
+  <tbody>
+    <tr>
+      <td><%= @shortcut.name %></td>
+      <td><%= @shortcut.key %></td>
+      <td>
+        <% if @shortcut.bookmarked_by?(current_user) %>
+          <p>
+            <%= link_to shortcut_bookmarks_path(@shortcut), method: :delete do %>
+              ♥<%= @shortcut.bookmarks.count %> いいね
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to shortcut_bookmarks_path(@shortcut), method: :post do %>
+              ♡<%= @shortcut.bookmarks.count %> いいね
+            <% end %>
+          </p>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
