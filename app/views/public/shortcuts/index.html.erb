@@ -22,18 +22,18 @@
         </td>
         <td>
           ブックマーク登録人数:<%= shortcut.bookmarks.count %>人</br>
-          コメント件数：<%= shortcut.comments.count %></br>
-          使用頻度平均：
-          <!--<div id="star-rate-<%#= comment.id %>"></div>-->
+          コメント件数：<%= shortcut.comments.count %>件</br>
+          使用頻度平均：<%= shortcut.comments.average(:rate) %>点
+          <div id="star-rate-<%= shortcut.id %>"></div>
           <script>
-          // $('#star-rate-<%#= shortcut.comment.id %>').raty({
-            // size: 36,
-            // starOff: "#{asset_path('star-off.png')}",
-            // starOn: "#{asset_path('star-on.png')}",
-            // starHalf: "#{asset_path('star-half.png')}",
-            // half: true,
-            // readOnly: true,
-            // score: "#{comment.reviews.average(:rate).to_f.round(1)}",
+          $('#star-rate-<%= shortcut.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: '<%= shortcut.comments.average(:rate).to_f.round(1) %>',
             //注目ポイント↑ 平均点を算出し、round関数で切り上げ
           });
           </script>

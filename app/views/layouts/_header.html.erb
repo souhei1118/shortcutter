@@ -1,4 +1,5 @@
 <header>
+  <nav class="navbar navbar-inverse navbar-fixed-top active" role="navigation" style="background-color: #CCDDD3;">
   <a href="/"><%= image_tag('logo_transparent.png', size: "150x150") %></a>
   <% if user_signed_in? %>
     <!--ユーザーログイン後のヘッダー-->
@@ -9,7 +10,7 @@
       <%= link_to "マイページ",user_path(current_user) %>
     </li>
     <li>
-      <%= link_to "ショートカット一覧",shortcuts_path %>
+      <%= link_to "ショートカット一覧",categories_path %>
     </li>
     <li>
       <%#= link_to "クイズに挑戦",quizzes_path %>
@@ -57,4 +58,5 @@
       <%= link_to "管理者の方はこちら",new_admin_session_path %>
     </li>
   <% end %>
+  </nav>
 </header>

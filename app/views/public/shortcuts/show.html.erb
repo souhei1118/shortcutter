@@ -71,7 +71,6 @@ $('#star').raty({
 <%= f.submit '投稿する', class:"btn btn-success" %>
 <% end %>
 
-<%= link_to "戻る",shortcuts_path %>
 レビュー一覧(<%= @shortcut.comments.count %>件)</br>
 <% @shortcut.comments.each do |comment| %>
     <p>

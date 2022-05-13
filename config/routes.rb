@@ -13,8 +13,11 @@ devise_for :users,skip: [:passwords], controllers: {
 
 # ユーザー側のルーティング
   scope module: :public do
-    patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
-    get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+
+    get 'categories'=> 'categories#index'  #ショートカットカテゴリ選択画面
+
+    patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'  #退会確認画面
+    get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'  #退会完了画面
     resources :users,only: [:show, :edit, :update ] do
       member do
         get '/bookmarks' => 'bookmarks#index'
@@ -22,24 +25,22 @@ devise_for :users,skip: [:passwords], controllers: {
 
     end
 
-    resources :shortcuts,only: [:index, :show ] do
+    resources :shortcuts,only: [:index, :show ]
       resources :comments, only: [:create, :destroy ]
       resource :bookmarks, only: [:create, :destroy ]
-    end
+
   end
 
   # 管理者側のルーティング
   namespace :admin do
     root "homes#top"
 
-    resources :users,only: [:index, :show, :edit, :update ] do
-    end
+    resources :users,only: [:index, :show, :edit, :update ]
 
-    resources :shortcuts do
-    end
+    resources :shortcuts
 
-    resources :categories,only: [:index, :create, :edit, :update ] do
-    end
+    resources :categories,only: [:index, :create, :edit, :update ]
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
