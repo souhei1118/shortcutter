@@ -5,11 +5,13 @@ class Public::CommentsController < ApplicationController
     comment.shortcut_id = shortcut.id
     comment.save
     redirect_to shortcut_path(shortcut)
+    flash[:success] = "レビューを投稿しました！"
   end
 
   def destroy
     Comment.find(params[:id]).destroy
     redirect_to shortcut_path(params[:shortcut_id])
+    flash[:success] = "レビューを削除しました"
   end
 
   private

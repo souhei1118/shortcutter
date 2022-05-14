@@ -8,6 +8,7 @@ class Public::BookmarksController < ApplicationController
     bookmark = current_user.bookmarks.new(shortcut_id: shortcut.id)
     bookmark.save
     redirect_to shortcut_path(shortcut)
+    flash[:success] = "ブックマークに登録しました"
   end
 
   def destroy
@@ -15,5 +16,6 @@ class Public::BookmarksController < ApplicationController
     bookmark = current_user.bookmarks.find_by(shortcut_id: shortcut.id)
     bookmark.destroy
     redirect_to shortcut_path(shortcut)
+    flash[:success] = "ブックマークから削除しました"
   end
 end

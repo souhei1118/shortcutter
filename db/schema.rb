@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_11_094842) do
+ActiveRecord::Schema.define(version: 2022_05_14_151357) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2022_05_11_094842) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -72,6 +73,23 @@ ActiveRecord::Schema.define(version: 2022_05_11_094842) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "rate"
+  end
+
+  create_table "quiz_choices", force: :cascade do |t|
+    t.integer "quiz_id"
+    t.boolean "correct_answer", default: false, null: false
+    t.string "choice"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quiz_id"], name: "index_quiz_choices_on_quiz_id"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string "name"
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_quizzes_on_category_id"
   end
 
   create_table "shortcuts", force: :cascade do |t|
@@ -99,4 +117,6 @@ ActiveRecord::Schema.define(version: 2022_05_11_094842) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "quiz_choices", "quizzes"
+  add_foreign_key "quizzes", "categories"
 end
