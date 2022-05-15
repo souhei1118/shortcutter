@@ -1,4 +1,7 @@
 <h1>ユーザー用ショートカット一覧画面</h1>
+<%= link_to "ブックマークしたショートカットを見る", bookmarks_user_path(current_user.id) %>
+
+<!--部分テンプレート予定　START-->
 <% if @shortcuts.present? %>
   <table>
     <thead>
@@ -20,9 +23,24 @@
           <%= shortcut.key %>
         </td>
         <td>
-          <!--いいね数</br>-->
-          <!--コメント数</br>-->
-          <!--使用頻度-->
+          ブックマーク登録人数:<%= shortcut.bookmarks.count %>人</br>
+          コメント件数：<%= shortcut.comments.count %>件</br>
+          使用頻度平均：<%= shortcut.comments.average(:rate).to_f.round(1) %>点
+          <div id="star-rate-<%= shortcut.id %>"></div>
+          <script>
+          // ブラウザバックした時に星が増えないように（emptyメソッドを使って、一旦子要素を削除する）
+          $('#star-rate-<%= shortcut.id %>').empty();
+          $('#star-rate-<%= shortcut.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: '<%= shortcut.comments.average(:rate).to_f.round(1) %>',
+            //注目ポイント↑ 平均点を算出し、round関数で切り上げ
+          });
+          </script>
         </td>
       </tr>
       <% end %>
@@ -31,3 +49,4 @@
   <% else %>
   <p>ショートカットキーがまだ登録されていません。</p>
 <% end %>
+<!--部分テンプレート予定　FINISH-->

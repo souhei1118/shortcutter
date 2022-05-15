@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
+# プロフィール画像用メソッド
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpeg')
@@ -20,7 +21,17 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+# 退会機能メソッド
   def active_for_authentication?
     super && (is_deleted == false)
   end
+
+# ゲストログイン機能メソッド
+  def self.guest
+    find_or_create_by!(nickname: 'ゲストユーザー' ,email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.nickname = "ゲストユーザー"
+    end
+  end
+
 end

@@ -41,6 +41,6 @@ class Admin::ShortcutsController < ApplicationController
   private
 
   def shortcut_params
-    params.require(:shortcut).permit(:shortcut_image, :name, :key, :category_id, :evaluation )
+    params.require(:shortcut).permit(:shortcut_image, :name, :key, :category_id )
   end
 end
