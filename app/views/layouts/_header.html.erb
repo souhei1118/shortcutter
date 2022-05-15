@@ -1,62 +1,72 @@
 <header>
-  <nav class="navbar navbar-inverse navbar-fixed-top active" role="navigation" style="background-color: #CCDDD3;">
-  <a href="/"><%= image_tag('logo_transparent.png', size: "150x150") %></a>
-  <% if user_signed_in? %>
-    <!--ユーザーログイン後のヘッダー-->
-    <li>
-      ようこそ、<%= current_user.nickname %>さん！
-    </li>
-    <li>
-      <%= link_to "マイページ",user_path(current_user) %>
-    </li>
-    <li>
-      <%= link_to "ショートカット一覧",categories_path %>
-    </li>
-    <li>
-      <%#= link_to "クイズに挑戦",quizzes_path %>
-    </li>
-    <li>
-      <%#= link_to "お問合せ",root_path %>
-    </li>
-    <li>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        ログアウト
-      <% end %>
-    </li>
-    <!--管理者ログイン後のヘッダー-->
-    <% elsif admin_signed_in? %>
-    <li>
-      <%= link_to "会員管理",admin_users_path %>
-    </li>
-    <li>
-      <%= link_to "ショートカット管理",admin_shortcuts_path %>
-    </li>
-    <li>
-      <%= link_to "カテゴリ管理",admin_categories_path %>
-    </li>
-    <li>
-      <%#= link_to "クイズ管理",admin_quizzes_path %>
-
-    </li>
-    <li>
-      <%= link_to destroy_admin_session_path, method: :delete do %>
-        ログアウト
-      <% end %>
-    </li>
-    <!--未ログイン時のヘッダー-->
-    <% else %>
-    <li>
-      <%= link_to "新規登録",new_user_registration_path %>
-    </li>
-    <li>
-      <%= link_to "ログイン",root_path %>
-    </li>
-    <li>
-      <%= link_to "お問合せ",root_path %>
-    </li>
-    <li>
-      <%= link_to "管理者の方はこちら",new_admin_session_path %>
-    </li>
-  <% end %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/"><%= image_tag('logo_transparent.png', size: "100x100") %></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container-fluid">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <!--ユーザーログイン後のヘッダー-->
+          <li class="nav-item active nav-link">
+            ようこそ、<%= current_user.nickname %>さん！
+          </li>
+          <li class="nav-item">
+            <%= link_to "マイページ",user_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ショートカット一覧",categories_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%#= link_to "クイズに挑戦",quizzes_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%#= link_to "お問合せ",root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, class: "nav-link", method: :delete do %>
+              ログアウト
+            <% end %>
+          </li>
+          <!--管理者ログイン後のヘッダー-->
+          <% elsif admin_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "会員管理",admin_users_path %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "ショートカット管理",admin_shortcuts_path %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "カテゴリ管理",admin_categories_path %>
+          </li>
+          <li class="nav-item active">
+            <%#= link_to "クイズ管理",admin_quizzes_path %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to destroy_admin_session_path, method: :delete do %>
+              ログアウト
+            <% end %>
+          </li>
+          <!--未ログイン時のヘッダー-->
+          <% else %>
+          <li class="nav-item active">
+            <%= link_to "新規登録",new_user_registration_path %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "ログイン",root_path %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "お問合せ",root_path %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "管理者の方はこちら",new_admin_session_path %>
+          </li>
+        <% end %>
+      </ul>
+      <form class="d-flex ms-auto" role="search">
+        <input type="text" class="form-control me-2" placeholder="ショートカットを検索..." aria-label="検索...">
+        <button type="submit" class="btn btn-outline-success flex-shrink-0">検索</button>
+      </form>
+    </div>
   </nav>
 </header>

@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+#footerwrap {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background: #384452;
+}
+
+#footerwrap p {
+	color: #bfc9d3;
+}
+
+#footerwrap h4 {
+	color: white;
+}
+
+#footerwrap i:hover {
+	color: #00b3fe
+}
+
+.hline-w {
+	border-bottom: 2px solid #ffffff;
+	margin-bottom: 25px;
+}
