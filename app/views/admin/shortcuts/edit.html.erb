@@ -1,0 +1,28 @@
+<h1>管理者ショートカット編集画面</h1>
+<div>
+  現在使用されている実演画像
+  <p><%= image_tag @shortcut.get_shortcut_image(100,100) %></p>
+</div>
+<%= form_with model: @shortcut, url: admin_shortcut_path(@shortcut.id), method: :patch do |f| %>
+  <div class="field">
+    <%= f.file_field :shortcut_image, placeholder: "実演画像", accept: "image/*" %>
+  </div>
+  <div class="field">
+    <%= f.label :ショートカット名 %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :コマンド %><br />
+    <%= f.text_field :key, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :カテゴリ %><br />
+    <%= f.collection_select :category_id, Category.all,:id,:name ,prompt: "カテゴリを選んでください" %>
+  </div>
+
+  <%= f.submit "編集内容を保存する" %>
+  <%= link_to "戻る",admin_shortcut_path %>
+
+<% end %>

@@ -1,0 +1,6 @@
+<h1>ユーザーショートカットカテゴリ選択画面</h1>
+<h1>学びたいカテゴリを選択しよう！</h1>
+<% @categories.each do |category| %>
+  <p><%= link_to category.name, shortcuts_path(category_id: category.id), class: "btn btn-success" %></p>
+<% end %>
+

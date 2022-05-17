@@ -1,0 +1,9 @@
+<h1>管理者カテゴリ編集画面</h1>
+
+<%= form_with model: @category, url: admin_category_path(@category.id), method: :patch do |f| %>
+<div>
+  <%= f.label :ショートカット名 %><%= f.text_field :name %>
+</div>admin_categories_path
+<%= f.submit "編集内容を保存する" %>
+  <%= link_to "戻る",admin_categories_path %>
+<% end %>

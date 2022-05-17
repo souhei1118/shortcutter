@@ -1,0 +1,23 @@
+<h1>管理者ユーザー情報画面</h1>
+<%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :ニックネーム %><br />
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+      <%= f.radio_button :is_deleted, false %>
+  　<%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
+    　<%= f.radio_button :is_deleted, true %>
+  　<%= f.label :is_deleted, "退会", {value: :true, style: "display: inline-block;"} %>
+  </div>
+
+  <%= f.submit "編集内容を保存する" %>
+  <%= link_to "戻る",admin_user_path(@user) %>
+
+<% end %>
