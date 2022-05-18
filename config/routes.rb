@@ -5,17 +5,17 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-  
+
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  
+
   # ゲストユーザーログイン時ルーティング処理
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
-  
+
   # ユーザー側のルーティング
   scope module: :public do
 
@@ -49,6 +49,11 @@ Rails.application.routes.draw do
     resources :quizzes
 
   end
+
+# お問合せフォームルーティング
+  get   'inquiry'         => 'inquiry#index'     # 入力画面
+  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
