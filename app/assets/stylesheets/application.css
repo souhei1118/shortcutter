@@ -13,6 +13,17 @@
  *= require_tree .
  *= require_self
  */
+main{
+	height: 700px;
+  background-image: url(pc.jpg);
+  background-size: cover;
+  background-position: center
+}
+
+.main-visual{
+	height: 700px;
+	background-color: rgba(255, 255, 255, 0.4);
+}
 #footerwrap {
 	padding-top: 40px;
 	padding-bottom: 40px;

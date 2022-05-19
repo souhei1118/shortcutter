@@ -1,0 +1,26 @@
+<%= form_with model: [shortcut, comment], local: false do |f| %>
+
+<!--レビュー-->
+<%= f.label :rate,'あなたの使用頻度はどれくらい？' %>
+<div id="star-rate-<%= shortcut.id %>">
+  <%= f.hidden_field :rate, id: :review_star %>
+</div>
+
+<!-- 評価javascript -->
+<script>
+$('#star-rate-<%= shortcut.id %>').empty();
+$('#star-rate-<%= shortcut.id %>').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  scoreName: 'comment[rate]',
+  half: true,
+});
+</script>
+
+<!-- コメント -->
+<%= f.label :comment, 'コメント' %>
+<%= f.text_area :comment, rows: "8",placeholder:'コメントがなくても評価のみで投稿できます' %>
+<%= f.submit '投稿する', class:"btn btn-success" %>
+<% end %>

@@ -1,7 +1,7 @@
 <h1>管理者ショートカット編集画面</h1>
 <div>
   現在使用されている実演画像
-  <p><%= image_tag @shortcut.get_shortcut_image(100,100) %></p>
+  <p><%= image_tag @shortcut.get_shortcut_image(500,500) %></p>
 </div>
 <%= form_with model: @shortcut, url: admin_shortcut_path(@shortcut.id), method: :patch do |f| %>
   <div class="field">

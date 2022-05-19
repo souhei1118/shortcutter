@@ -1,1 +1,1 @@
-$("#book_<%= @shortcut.id %> .favorite-btn").html("<%= j(shortcut: @shortcut) %>");
+$("#shortcut_<%= @shortcut.id %> .bookmark-btn").html("<%= j(render 'public/bookmarks/bookmark-btn', shortcut: @shortcut) %>");

@@ -1,0 +1,28 @@
+レビュー一覧(<%= shortcut.comments.count %>件)</br>
+<% shortcut.comments.each do |comment| %>
+  <p>
+    <%= image_tag comment.user.get_profile_image(100,100) %>
+    ニックネーム:<%= comment.user.nickname %>さん
+
+    <!--レビュー-->
+    <p>使用頻度評価：<%= comment.rate %>点</p>
+    <div id="star-rate-<%= comment.id %>"></div>
+    <script>
+    $('#star-rate-<%= comment.id %>').empty();
+    $('#star-rate-<%= comment.id %>').raty({
+      size: 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: <%= comment.rate %>,
+    });
+    </script>
+    <!--コメント-->
+    <%= comment.comment %>
+    <% if comment.user == current_user %>
+      <%= link_to "自分のレビューを削除", shortcut_comment_path(comment.shortcut, comment), remote: true, method: :delete,data: {confirm: "本当に削除しますか？"} %>
+    <% end %>
+  </p>
+<% end %>
