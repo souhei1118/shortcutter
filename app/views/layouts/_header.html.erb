@@ -18,10 +18,10 @@
             <%= link_to "ショートカット一覧",categories_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%#= link_to "クイズに挑戦",quizzes_path, class: "nav-link" %>
+            <%= link_to "クイズに挑戦",quizzes_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%#= link_to "お問合せ",root_path, class: "nav-link" %>
+            <%= link_to "お問合せ",inquiry_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, class: "nav-link", method: :delete do %>
@@ -30,36 +30,36 @@
           </li>
           <!--管理者ログイン後のヘッダー-->
           <% elsif admin_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "会員管理",admin_users_path %>
+          <li class="nav-item">
+            <%= link_to "会員管理",admin_users_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
-            <%= link_to "ショートカット管理",admin_shortcuts_path %>
+          <li class="nav-item">
+            <%= link_to "ショートカット管理",admin_shortcuts_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
-            <%= link_to "カテゴリ管理",admin_categories_path %>
+          <li class="nav-item">
+            <%= link_to "カテゴリ管理",admin_categories_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
-            <%#= link_to "クイズ管理",admin_quizzes_path %>
+          <li class="nav-item">
+            <%= link_to "クイズ管理",admin_quizzes_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
-            <%= link_to destroy_admin_session_path, method: :delete do %>
+          <li class="nav-item">
+            <%= link_to destroy_admin_session_path, class: "nav-link", method: :delete do %>
               ログアウト
             <% end %>
           </li>
           <!--未ログイン時のヘッダー-->
           <% else %>
-          <li class="nav-item active">
-            <%= link_to "新規登録",new_user_registration_path %>
+          <li class="nav-item">
+            <%= link_to "新規登録",new_user_registration_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
-            <%= link_to "ログイン",root_path %>
+          <li class="nav-item">
+            <%= link_to "ログイン",root_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
-            <%= link_to "お問合せ",root_path %>
+          <li class="nav-item">
+            <%= link_to "お問合せ",inquiry_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
-            <%= link_to "管理者の方はこちら",new_admin_session_path %>
+          <li class="nav-item">
+            <%= link_to "管理者の方はこちら",new_admin_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
