@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "public/homes#top"
+  
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -19,8 +20,6 @@ Rails.application.routes.draw do
   # ユーザー側のルーティング
   scope module: :public do
 
-    get 'categories'=> 'categories#index'  #ショートカットカテゴリ選択画面
-
     patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'  #退会確認画面
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'  #退会完了画面
     resources :users,only: [:show, :edit, :update ] do
@@ -30,10 +29,15 @@ Rails.application.routes.draw do
 
     end
 
+    get 'categories'=> 'categories#index'  #ショートカットカテゴリ選択画面
+
     resources :shortcuts,only: [:index, :show ] do
       resources :comments, only: [:create, :destroy ]
       resource :bookmarks, only: [:create, :destroy ]
     end
+
+    resources :quizzes,only: [:index, :show, :create ]
+    get 'quizzes/result'
   end
 
   # 管理者側のルーティング
@@ -49,6 +53,11 @@ Rails.application.routes.draw do
     resources :quizzes
 
   end
+
+# お問合せフォームルーティング
+  get   'inquiry'         => 'inquiry#index'     # 入力画面
+  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
