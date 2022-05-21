@@ -10,8 +10,9 @@ class Public::CommentsController < ApplicationController
 
   def destroy
     Comment.find(params[:id]).destroy
-    #renderしたときに@shortcutのデータがないので@shortcutを定義
+    #renderしたときに@shortcut,@commentのデータがないので@shortcut,@commentを定義
     @shortcut = Shortcut.find(params[:shortcut_id])
+    @comment = Comment.new
     render 'public/comments/review' #render先にjsファイルを指定
   end
 

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "public/homes#top"
-  
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -55,7 +55,10 @@ Rails.application.routes.draw do
   end
 
 # お問合せフォームルーティング
-  get   'inquiry'         => 'inquiry#index'     # 入力画面
+  get  'inquiry'         => 'inquiry#index'     # 入力画面
+  get  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  get  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
+
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
