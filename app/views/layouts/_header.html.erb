@@ -64,8 +64,10 @@
         <% end %>
       </ul>
       <form class="d-flex ms-auto" role="search">
-        <input type="text" class="form-control me-2" placeholder="ショートカットを検索..." aria-label="検索...">
-        <button type="submit" class="btn btn-outline-success flex-shrink-0">検索</button>
+        <%= search_form_for @search, url:shortcuts_path do |f| %>
+          <%= f.text_field :name_cont, placeholder: "ショートカットを検索...", class: "form-control me-2" %>
+          <%= f.submit ("検索"),class: "btn btn-outline-success flex-shrink-0" %>
+        <% end %>
       </form>
     </div>
   </nav>

@@ -4,6 +4,7 @@ class Public::CommentsController < ApplicationController
     comment = current_user.comments.new(comment_params)
     comment.shortcut_id = @shortcut.id
     comment.save
+    @comment = Comment.new
     render 'public/comments/review' #render先にjsファイルを指定
   end
 
