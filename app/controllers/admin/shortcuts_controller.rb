@@ -7,6 +7,7 @@ class Admin::ShortcutsController < ApplicationController
     @shortcut = Shortcut.new(shortcut_params)
     if @shortcut.save
       redirect_to admin_shortcut_path(@shortcut.id)
+      flash[:success] = "ショートカットを作成しました"
     else
       render :new
     end

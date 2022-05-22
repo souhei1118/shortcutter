@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
     resources :categories,only: [:index, :create, :edit, :update ]
 
+    get 'quizzes/categories' => 'quizzes#category' #クイズカテゴリ選択画面
     resources :quizzes
 
   end

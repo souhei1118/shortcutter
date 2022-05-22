@@ -2,7 +2,6 @@
 <div>
   <%= link_to "新規ショートカットキー登録", new_admin_shortcut_path %>
 </div>
-<!--部分テンプレート予定　START-->
 <% if @shortcuts.present? %>
   <table>
     <thead>
@@ -50,4 +49,3 @@
   <% else %>
   <p>ショートカットキーがまだ登録されていません。</p>
 <% end %>
-<!--部分テンプレート予定　FINISH-->

@@ -1,2 +1,32 @@
-<h1>Admin::Quizzes#new</h1>
-<p>Find me in app/views/admin/quizzes/new.html.erb</p>
+<h1>管理者クイズ新規作成画面</h1>
+<%= form_with model: @quiz,url: admin_quizzes_path do |f| %>
+  <div>
+    <%= f.label:実演画像 %>
+    <%= f.file_field :quiz_gif, accept: "image/*" %>
+  </div>
+  <div>
+    <%= f.label:ショートカット名 %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label:カテゴリ %>
+    <%= f.collection_select :category_id, Category.all,:id,:name ,prompt: "カテゴリを選んでください" %>
+  </div>
+  <div>
+      <%= f.label:正解 %>
+      <%= f.text_field :choice1 %>
+
+      <%= f.label:不正解 %>
+      <%= f.text_field :choice2 %>
+
+      <%= f.label:不正解 %>
+      <%= f.text_field :choice3 %>
+
+      <%= f.label:不正解 %>
+      <%= f.text_field :choice4 %>
+  </div>
+
+  <div>
+    <%= f.submit "新規登録",class: 'btn btn-success' %>
+  </div>
+<% end %>

@@ -75,18 +75,22 @@ ActiveRecord::Schema.define(version: 2022_05_14_151357) do
     t.float "rate"
   end
 
-  create_table "quiz_choices", force: :cascade do |t|
-    t.integer "quiz_id"
-    t.boolean "correct_answer", default: false, null: false
-    t.string "choice"
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "title", null: false
+    t.text "message", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["quiz_id"], name: "index_quiz_choices_on_quiz_id"
   end
 
   create_table "quizzes", force: :cascade do |t|
     t.string "name"
     t.integer "category_id"
+    t.boolean "correct_answer", default: false, null: false
+    t.string "choice1"
+    t.string "choice2"
+    t.string "choice3"
+    t.string "choice4"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_quizzes_on_category_id"
@@ -117,6 +121,5 @@ ActiveRecord::Schema.define(version: 2022_05_14_151357) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "quiz_choices", "quizzes"
   add_foreign_key "quizzes", "categories"
 end
