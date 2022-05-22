@@ -1,2 +1,9 @@
-<h1>Public::Quizzes#show</h1>
-<p>Find me in app/views/public/quizzes/show.html.erb</p>
+<h1>問題画面</h1>
+<% @quizzes.each do |quiz| %>
+  <p>
+  <%= quiz.name %>
+  </p>
+  <p>
+    カテゴリ：<%= quiz.category.name %>
+  </p>
+<% end %>

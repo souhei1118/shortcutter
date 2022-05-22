@@ -1,0 +1,4 @@
+<h1>管理するショートカットのカテゴリを選択してください</h1>
+<% @categories.each do |category| %>
+  <p><%= link_to category.name, admin_shortcuts_path(category_id: category.id), class: "btn btn-success" %></p>
+<% end %>

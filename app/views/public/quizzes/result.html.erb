@@ -1,2 +1,13 @@
-<h1>Public::Quizzes#result</h1>
-<p>Find me in app/views/public/quizzes/result.html.erb</p>
+<h1>クイズ結果画面</h1>
+結果は。。。</br>
+<%= @result_true.count %>問正解しました！</br>
+
+<!--間違えた問題が存在するかを確認-->
+<% if @result_false.present? %>
+  <!--間違えた問題の一覧を表示-->
+  <% @result_false.each do |result_false| %>
+    <%= result_false.quiz.choice1 %>
+  <% end %>
+<% end %>
+<%= link_to "クイズ選択画面へ", quizzes_path, class: "btn btn-success" %>
+

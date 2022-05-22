@@ -46,16 +46,17 @@ Rails.application.routes.draw do
 
     resources :users,only: [:index, :show, :edit, :update ]
 
+    get 'shortcuts/categories' => 'shortcuts#category' #クイズカテゴリ選択画面
     resources :shortcuts
 
     resources :categories,only: [:index, :create, :edit, :update ]
 
     get 'quizzes/categories' => 'quizzes#category' #クイズカテゴリ選択画面
-    resources :quizzes
+    resources :quizzes,only: [:new, :index, :show, :edit, :create, :update ]
 
   end
 
-# お問合せフォームルーティング
+# お問合せフォームルーティング(未ログイン時でも利用可能)
   get  'inquiry'         => 'inquiry#index'     # 入力画面
   get  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   get  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
