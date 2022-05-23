@@ -1,0 +1,13 @@
+<h1>問題画面</h1>
+
+
+  <p>
+  <%= @quiz.name %>
+  </p>
+  <%= link_to  @quiz.choice1, category_answer_manager_answers_path(@category, @answer_manager, choise: @quiz.choice1, quiz_id: @quiz.id), method: :post %>
+
+
+<%= link_to  @quiz.choice2, category_answer_manager_answers_path(@category, @answer_manager,choise: @quiz.choice2, quiz_id: @quiz.id), method: :post %>
+
+<%= link_to  @quiz.choice3, category_answer_manager_answers_path(@category, @answer_manager, choise: @quiz.choice3, quiz_id: @quiz.id), method: :post %>
+<%= link_to  @quiz.choice4,  category_answer_manager_answers_path(@category, @answer_manager , choise: @quiz.choice4, quiz_id: @quiz.id), method: :post %>

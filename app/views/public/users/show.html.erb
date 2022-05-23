@@ -1,6 +1,6 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-4 mt-5'>
+    <div class='col-md-4 mt-5 bg-light py-3'>
       <h3 class="mb-4 mini-title">マイページ</h3>
       <table class="table text-center mt-5">
         <tr>
@@ -39,7 +39,7 @@
       <div class="card mt-4" style="width: 18rem;">
         <%= image_tag('programming.jpg', size: "300x300", class: "card-img-top" ) %>
         <div class="card-body">
-          <h5 class="card-title">ショートカットを学ぼう！</h5>
+          <h5 class="card-title text-center fw-bold">ショートカットを学ぼう！</h5>
           <p class="card-text">基本コマンド、Excel、VScodeで使用できるショートカットキーを学ぶことができます</p>
           <%= link_to "ショートカットを学ぶ",categories_path, class: "btn btn-primary col-12" %>
         </div>
@@ -49,8 +49,8 @@
       <div class="card mt-4" style="width: 18rem;">
         <%= image_tag('quiz.jpg', size: "300x300", class: "card-img-top" ) %>
         <div class="card-body">
-          <h5 class="card-title">クイズに挑戦しよう！</h5>
-          <p class="card-text">初級と上級がそれぞれあり、１回のクイズで１０問出題されます！全問正解を目指しましょう！</p>
+          <h5 class="card-title text-center fw-bold">クイズに挑戦しよう！</h5>
+          <p class="card-text">初級と上級がそれぞれあり、１回のクイズで１０問出題されます。全問正解を目指しましょう！</p>
           <%= link_to "クイズに挑戦",quizzes_path, class: "btn btn-primary col-12" %>
         </div>
       </div>

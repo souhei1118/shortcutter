@@ -5,9 +5,10 @@ class Public::QuizzesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @quizzes = @category.quizzes.order("RANDOM()").limit(10)
+    @quiz = Quiz.where( 'id >= ?', rand(Quiz.first.id..Quiz.last.id) ).first
+    
   end
-  
+
   def create
   end
 

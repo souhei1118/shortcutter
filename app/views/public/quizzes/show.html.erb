@@ -1,9 +1,13 @@
 <h1>問題画面</h1>
-<% @quizzes.each do |quiz| %>
+
+
   <p>
-  <%= quiz.name %>
+  <%= @quiz.name %>
   </p>
-  <p>
-    カテゴリ：<%= quiz.category.name %>
-  </p>
-<% end %>
+  <%= link_to  @quiz.choice1, new_quiz_answer_path(@quiz, choise: @quiz.choice1) %>
+
+
+<%= link_to  @quiz.choice2, new_quiz_answer_path(@quiz, choise: @quiz.choice2 ) %>
+
+<%= link_to  @quiz.choice3, new_quiz_answer_path(@quiz, choise: @quiz.choice3) %>
+<%= link_to  @quiz.choice4, new_quiz_answer_path(@quiz, choise: @quiz.choice4) %>

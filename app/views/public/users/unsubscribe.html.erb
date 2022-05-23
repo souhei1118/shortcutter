@@ -1,9 +1,15 @@
-<h2>本当に退会しますか？</h2>
-<p>
-  退会すると会員情報やブックマークがなくなります</br>
-  退会する場合は「退会する」をクリックしてください。
-</p>
-<div>
-  <%= link_to "退会しない", user_path(current_user) %>
-    <%= link_to "退会する", withdraw_path, method: :patch, data: {confirm: "ほんまに？"} %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 mt-5 bg-light text-dark py-5">
+      <h1 class="fs-1 mb-5 text-center fw-bold">本当に退会しますか？</h1>
+      <p  class="mb-5 text-center fw-bold">
+        退会すると会員情報やブックマークがなくなります</br>
+        退会する場合は「退会する」をクリックしてください。
+      </p>
+      <div class="text-center">
+        <%= link_to "退会しない", user_path(current_user),class: "btn btn-primary" %>
+          <%= link_to "退会する", withdraw_path, method: :patch, data: {confirm: "本当によろしいですか？"},class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
 </div>

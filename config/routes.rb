@@ -35,8 +35,18 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy ]
       resource :bookmarks, only: [:create, :destroy ]
     end
+    
+    resources :categories do 
+      resources :answer_managers do 
+        resources :answers
+      end
+    end
+    
+ 
 
-    resources :quizzes,only: [:index, :show, :create ]
+    resources :quizzes,only: [:index, :show, :create ] do
+    
+    end  
     get 'quizzes/result'
   end
 

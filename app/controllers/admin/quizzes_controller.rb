@@ -51,7 +51,7 @@ class Admin::QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:name,:quiz_gif,:category_id,:choice1,:choice2,:choice3,:choice4)  #choice1が正解のカラム
+    params.require(:quiz).permit(:name,:quiz_gif,:category_id,:choice1,:choice2,:choice3,:choice4,:answer)  #choice1が正解のカラム
   end
 
   def category_params

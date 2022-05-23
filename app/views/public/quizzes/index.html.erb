@@ -1,4 +1,4 @@
 <h1>挑戦するクイズのカテゴリを選択してください</h1>
 <% @categories.each do |category| %>
-  <p><%= link_to category.name, quiz_path(category), class: "btn btn-success" %></p>
+  <p><%= link_to category.name, category_answer_managers_path(category), method: :post, class: "btn btn-success" %></p>
 <% end %>
