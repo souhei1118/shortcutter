@@ -1,3 +1,4 @@
+<%= render 'layouts/errors', obj: @quiz %>
 <h1>管理者クイズ新規作成画面</h1>
 <%= form_with model: @quiz,url: admin_quizzes_path do |f| %>
   <div>

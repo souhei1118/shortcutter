@@ -14,6 +14,14 @@
  *= require_self
  */
 
+.mini-title {
+	text-align: center;
+  color: 	black;/*文字色*/
+  background-color: white;
+	border: solid 3px black;/*線色*/
+	padding: 0.5em;/*文字周りの余白*/
+	border-radius: 0.5em;/*角丸*/
+}
 /*main*/
 
 .alert-success {

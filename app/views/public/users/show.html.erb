@@ -1,22 +1,59 @@
-<h1>ここは<%= current_user.nickname %>のマイページ</h1>
-<div>
-  <p><%= image_tag @user.get_profile_image(100,100) %></p>
-  ユーザー画像
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-4 mt-5'>
+      <h3 class="mb-4 mini-title">マイページ</h3>
+      <table class="table text-center mt-5">
+        <tr>
+          <th>
+            <%= image_tag @user.get_profile_image(300,300)%>
+          </th>
+        </tr>
+        <tr>
+          <th>ニックネーム</th>
+          <th><%= @user.nickname %></th>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <th><%= @user.email %></th>
+        </tr>
+      </table>
+      <div class="mt-5">
+        <%= link_to bookmarks_user_path, class: "btn btn-info col-12" do %>
+          <i class="fas fa-book">ブックマーク一覧</i>
+        <% end %>
+      </div>
+      <div class="mt-5">
+        <% if @user.nickname != "ゲストユーザー" %>
+          <%= link_to edit_user_path(@user), class: "btn btn-secondary btn-block col-12 edit_user_#{@user.id}" do %>
+            <i class="fas fa-user-cog">プロフィール変更</i>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="mt-5">
+        <% if @user.nickname != "ゲストユーザー" %>
+          <span><%= link_to "退会する方はこちらをクリック", unsubscribe_path, class: "btn btn-danger col-12" %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3 offset-md-1 mt-5">
+      <div class="card mt-4" style="width: 18rem;">
+        <%= image_tag('programming.jpg', size: "300x300", class: "card-img-top" ) %>
+        <div class="card-body">
+          <h5 class="card-title">ショートカットを学ぼう！</h5>
+          <p class="card-text">基本コマンド、Excel、VScodeで使用できるショートカットキーを学ぶことができます</p>
+          <%= link_to "ショートカットを学ぶ",categories_path, class: "btn btn-primary col-12" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 offset-md-1 mt-5">
+      <div class="card mt-4" style="width: 18rem;">
+        <%= image_tag('quiz.jpg', size: "300x300", class: "card-img-top" ) %>
+        <div class="card-body">
+          <h5 class="card-title">クイズに挑戦しよう！</h5>
+          <p class="card-text">初級と上級がそれぞれあり、１回のクイズで１０問出題されます！全問正解を目指しましょう！</p>
+          <%= link_to "クイズに挑戦",quizzes_path, class: "btn btn-primary col-12" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<% if @user.nickname != "ゲストユーザー" %>
-  <%= link_to "プロフィールを編集する", edit_user_path(@user) %>
-<% end %>
-<div>
-  ニックネーム<p><%= @user.nickname %></p>
-</div>
-<div>
-  メールアドレス<p><%= @user.email %></p>
-</div>
-<div>
-  <%= link_to "ブックマーク一覧", bookmarks_user_path %>
-</div>
-<% if @user.nickname != "ゲストユーザー" %>
-<div>
-  退会する方は　<span><%= link_to "こちら", unsubscribe_path %></span>　をクリック
-</div>
-<% end %>

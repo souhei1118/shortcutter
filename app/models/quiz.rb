@@ -2,6 +2,12 @@ class Quiz < ApplicationRecord
   belongs_to :category
   has_many :answers
 
+  validates :name,    presence: true
+  validates :choice1, presence: true
+  validates :choice2, presence: true
+  validates :choice3, presence: true
+  validates :choice4, presence: true
+
   has_one_attached :quiz_gif
 
   def get_quiz_gif(width, height)

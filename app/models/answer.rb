@@ -3,6 +3,9 @@ class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :quiz
 
+  validates :answer, acceptance: true  #チェックボックスのバリデーション
+  validates :result, inclusion: { in: [true, false] }
+
   # 解答の判定メソッド
   def judgment
     # もしchoice1(答え)と解答が同じの時
