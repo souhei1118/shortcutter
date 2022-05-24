@@ -21,7 +21,7 @@
   </script>
 
   <!-- コメント -->
-  <%= f.text_area :comment, class: "form-control mt-1", rows: "5", placeholder: 'コメントがなくても評価のみで投稿できます' %>
+  <%= f.text_area :comment, class: "form-control mt-1", rows: "3", placeholder: 'コメントがなくても評価のみで投稿できます（※８０文字以上入力すると投稿されません※）' %>
   <%= f.submit 'レビューを投稿する', class: "col-4 offset-6 mt-1 btn btn-success" %>
   <% end %>
 </div>

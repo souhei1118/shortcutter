@@ -1,3 +1,4 @@
+<%= render 'layouts/errors', obj: @comment %>
 <div class="container">
   <div class="row">
     <div class="col-5 mt-5 mini-title">
@@ -9,11 +10,11 @@
           <th>ショートカット名</th>
           <td><%= @shortcut.name %></td>
         </tr>
-        <tr id="shortcut_<%= @shortcut.id %>">
+        <tr>
           <th>コマンド</th>
           <td><%= @shortcut.key %></td>
         </tr>
-        <tr>
+        <tr id="shortcut_<%= @shortcut.id %>">
           <th>ブックマークに登録</th>
           <td class="bookmark-btn">
             <%= render "public/bookmarks/bookmark-btn", shortcut: @shortcut %>

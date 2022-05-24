@@ -1,11 +1,13 @@
-レビュー一覧(<%= shortcut.comments.count %>件)</br>
-<% shortcut.comments.each do |comment| %>
-  <p>
-    <%= image_tag comment.user.get_profile_image(100,100) %>
+<div class="mt-2 mini-title">
+  <div class="col-4">
+    レビュー(最大３件表示）
+  </div>
+  <% shortcut.comments.last(3).each do |comment| %>
+    <div class="offset-1 d-flex fw-bold">
     ニックネーム:<%= comment.user.nickname %>さん
 
     <!--レビュー-->
-    <p>使用頻度評価：<%= comment.rate %>点</p>
+    使用頻度評価：<%= comment.rate %>点
     <div id="star-rate-<%= comment.id %>"></div>
     <script>
     $('#star-rate-<%= comment.id %>').empty();
@@ -19,10 +21,16 @@
       score: <%= comment.rate %>,
     });
     </script>
+    </div>
     <!--コメント-->
-    <%= comment.comment %>
-    <% if comment.user == current_user %>
-      <%= link_to "自分のレビューを削除", shortcut_comment_path(comment.shortcut, comment), remote: true, method: :delete,data: {confirm: "本当に削除しますか？"} %>
-    <% end %>
-  </p>
-<% end %>
+    <div class="text-break">
+      <div class="col-2">
+      【コメント】<br>
+      </div>
+      <%= comment.comment %></br>
+      <% if comment.user == current_user %>
+        <%= link_to "自分のレビューを削除", shortcut_comment_path(comment.shortcut, comment), remote: true, method: :delete,data: {confirm: "本当に削除しますか？"} %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
