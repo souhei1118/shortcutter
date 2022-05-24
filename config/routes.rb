@@ -29,24 +29,20 @@ Rails.application.routes.draw do
 
     end
 
-    get 'categories'=> 'categories#index'  #ショートカットカテゴリ選択画面
-
     resources :shortcuts,only: [:index, :show ] do
       resources :comments, only: [:create, :destroy ]
       resource :bookmarks, only: [:create, :destroy ]
     end
-    
-    resources :categories do 
-      resources :answer_managers do 
+
+    resources :categories,only: [:index] do
+      resources :answer_managers do
         resources :answers
       end
     end
-    
- 
 
     resources :quizzes,only: [:index, :show, :create ] do
-    
-    end  
+
+    end
     get 'quizzes/result'
   end
 

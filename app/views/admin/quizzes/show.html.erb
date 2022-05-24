@@ -1,4 +1,5 @@
 <h1>管理者クイズ詳細画面</h1>
+
 <div>
   <p>
     <%= image_tag @quiz.get_quiz_gif(500,500) %>
@@ -12,12 +13,10 @@
   カテゴリ：<%= @quiz.category.name %>
 </div>
 <div>
-  正解<%= @quiz.choice1 %>
+  <%= @quiz.choice1 %>
+  <%= @quiz.choice2 %>
+  <%= @quiz.choice3 %>
+  <%= @quiz.choice4 %>
+  <%= @quiz.answer %>
 </div>
-__________
-<div>
-  不正解<%= @quiz.choice2 %>
-  不正解<%= @quiz.choice3 %>
-  不正解<%= @quiz.choice4 %>
-</div>
-<%= link_to "このショートカットを編集する", edit_admin_quiz_path(@quiz) %>
+<%= link_to "このクイズを編集する", edit_admin_quiz_path(@quiz) %>

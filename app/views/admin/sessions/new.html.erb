@@ -1,32 +1,36 @@
 <div class="container">
   <div class="row">
     <h3 class="col-3 mb-4 mt-5 mini-title">管理者ログイン画面</h3>
-    <div class="card col-8 offset-2 mt-2">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <article class="card-body">
-        <h4 class="card-title text-center mb-4 mt-1">管理者ログイン</h4>
-        <p class="text-success text-center">管理者用のEmailとパスワードを入力してください</p>
-        <div class="d-grid gap-4 col-8 mt-4 mx-auto">
-          <div class="input-group">
-            <span class="input-group-text ">
-              <i class="fa fa-user"></i>
-            </span>
-            <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+  <div class="row">
+    <div class="col-6 offset-3 py-5 mt-4 mini-title">
+      <div class="card col-8 offset-2 mt-2">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <article class="card-body">
+          <h4 class="card-title text-center mb-4 mt-1">管理者ログイン</h4>
+          <p class="text-success text-center">管理者用のEmailとパスワードを入力してください</p>
+          <div class="d-grid gap-4 col-8 mt-4 mx-auto">
+            <div class="input-group">
+              <span class="input-group-text ">
+                <i class="fa fa-user"></i>
+              </span>
+              <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+            </div>
           </div>
-        </div>
-        <div class="d-grid gap-4 col-8 mx-auto">
-          <div class="input-group mt-4">
-            <span class="input-group-text">
-              <i class="fa fa-lock"></i>
-            </span>
-            <%= f.password_field :password, class: "form-control", placeholder: "password" %>
+          <div class="d-grid gap-4 col-8 mx-auto">
+            <div class="input-group mt-4">
+              <span class="input-group-text">
+                <i class="fa fa-lock"></i>
+              </span>
+              <%= f.password_field :password, class: "form-control", placeholder: "password" %>
+            </div>
           </div>
-        </div>
-        <div class="d-grid gap-2 col-6 mt-4 mx-auto">
-          <%= f.submit "ログイン", class: "btn btn-primary" %>
-        </div>
-      </article>
-      <% end %>
+          <div class="d-grid gap-2 col-6 mt-4 mx-auto">
+            <%= f.submit "ログイン", class: "btn btn-primary" %>
+          </div>
+        </article>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

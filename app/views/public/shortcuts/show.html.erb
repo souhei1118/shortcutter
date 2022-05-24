@@ -1,42 +1,39 @@
-<h1>ユーザー用ショートカットキー詳細画面</h1>
-<div>
-  <p><%= image_tag @shortcut.get_shortcut_image(500,500) %></p>
-</div>
-<div>
-  ショートカット名
-  <%= @shortcut.name %>
-</div>
-<div>
-  コマンド
-  <%= @shortcut.key %>
+<div class="container">
+  <div class="row">
+    <div class="col-5 mt-5 mini-title">
+      <div class="mt-5">
+        <%= image_tag @shortcut.get_shortcut_image(500,500) %>
+      </div>
+      <table class="table mt-5">
+        <tr>
+          <th>ショートカット名</th>
+          <td><%= @shortcut.name %></td>
+        </tr>
+        <tr id="shortcut_<%= @shortcut.id %>">
+          <th>コマンド</th>
+          <td><%= @shortcut.key %></td>
+        </tr>
+        <tr>
+          <th>ブックマークに登録</th>
+          <td class="bookmark-btn">
+            <%= render "public/bookmarks/bookmark-btn", shortcut: @shortcut %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-7 mt-3">
+      <!--レビューとコメントの入力フォーム-->
+      <div class="new-comment" id="new_comment">
+        <%= render 'public/comments/form', shortcut: @shortcut, comment: @comment %>
+      </div>
+
+      <!--コメント一覧　部分テンプレート-->
+      <div id="comments_area">
+        <%= render 'public/comments/review', shortcut: @shortcut %>
+      </div>
+      <!--コメント一覧　部分テンプレート-->
+    </div>
+  </div>
 </div>
 
-<table>
-  <thaed>
-    <tr>
-      <th>ショートカット名</th>
-      <th>コマンド</th>
-      <th>ブックマークに登録</th>
-    </tr>
-  </thaed>
-  <tbody>
-    <tr id="shortcut_<%= @shortcut.id %>">
-      <td><%= @shortcut.name %></td>
-      <td><%= @shortcut.key %></td>
-      <td class="bookmark-btn">
-        <%= render "public/bookmarks/bookmark-btn", shortcut: @shortcut %>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
-<!--レビューとコメントの入力フォーム-->
-<div class="new-comment" id="new_comment">
-  <%= render 'public/comments/form', shortcut: @shortcut, comment: @comment %>
-</div>
-
-<!--コメント一覧　部分テンプレート-->
-<div id="comments_area">
-  <%= render 'public/comments/review', shortcut: @shortcut %>
-</div>
-<!--コメント一覧　部分テンプレート-->

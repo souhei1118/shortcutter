@@ -1,38 +1,40 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-4 mt-5 bg-light py-3'>
-      <h3 class="mb-4 mini-title">マイページ</h3>
-      <table class="table text-center mt-5">
-        <tr>
-          <th>
-            <%= image_tag @user.get_profile_image(300,300)%>
-          </th>
-        </tr>
-        <tr>
-          <th>ニックネーム</th>
-          <th><%= @user.nickname %></th>
-        </tr>
-        <tr>
-          <th>メールアドレス</th>
-          <th><%= @user.email %></th>
-        </tr>
-      </table>
-      <div class="mt-5">
-        <%= link_to bookmarks_user_path, class: "btn btn-info col-12" do %>
-          <i class="fas fa-book">ブックマーク一覧</i>
-        <% end %>
-      </div>
-      <div class="mt-5">
-        <% if @user.nickname != "ゲストユーザー" %>
-          <%= link_to edit_user_path(@user), class: "btn btn-secondary btn-block col-12 edit_user_#{@user.id}" do %>
-            <i class="fas fa-user-cog">プロフィール変更</i>
+    <div class="col-md-4 py-2 mt-4 mini-title">
+      <div class='mt-1 bg-light py-3'>
+        <h3 class="mb-4 fw-bold mini-title">マイページ</h3>
+        <table class="table text-center mt-5">
+          <tr>
+            <th>
+              <%= image_tag @user.get_profile_image(300,300)%>
+            </th>
+          </tr>
+          <tr>
+            <th>ニックネーム</th>
+            <th><%= @user.nickname %></th>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <th><%= @user.email %></th>
+          </tr>
+        </table>
+        <div class="mt-5">
+          <%= link_to bookmarks_user_path, class: "btn btn-info col-12" do %>
+            <i class="fas fa-tags">ブックマーク一覧</i>
           <% end %>
-        <% end %>
-      </div>
-      <div class="mt-5">
-        <% if @user.nickname != "ゲストユーザー" %>
-          <span><%= link_to "退会する方はこちらをクリック", unsubscribe_path, class: "btn btn-danger col-12" %></span>
-        <% end %>
+        </div>
+        <div class="mt-5">
+          <% if @user.nickname != "ゲストユーザー" %>
+            <%= link_to edit_user_path(@user), class: "btn btn-secondary btn-block col-12 edit_user_#{@user.id}" do %>
+              <i class="fas fa-user-cog">プロフィール変更</i>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="mt-5">
+          <% if @user.nickname != "ゲストユーザー" %>
+            <span><%= link_to "退会する方はこちらをクリック", unsubscribe_path, class: "btn btn-danger col-12" %></span>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-md-3 offset-md-1 mt-5">

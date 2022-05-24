@@ -6,7 +6,6 @@ class Public::QuizzesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @quiz = Quiz.where( 'id >= ?', rand(Quiz.first.id..Quiz.last.id) ).first
-    
   end
 
   def create
@@ -22,7 +21,7 @@ class Public::QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:name,:quiz_gif,:category_id,:choice1,:choice2,:choice3,:choice4)  #choice1が正解のカラム
+    params.require(:quiz).permit(:name,:quiz_gif,:category_id,:choice1,:choice2,:choice3,:choice4,:answer)
   end
 
   def category_params

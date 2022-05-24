@@ -1,9 +1,9 @@
 <% if shortcuts.present? %>
-  <table>
+  <table class="table table-hover bg-light mt-2 text-center">
     <thead>
       <tr>
         <th>ショートカット名</th>
-        <th>コマンド</th>
+        <th>コマンド ※()内はMacのコマンドです</th>
         <th></th>
       </tr>
     </thead>
@@ -11,7 +11,7 @@
       <% shortcuts.each do |shortcut| %>
       <tr>
         <td>
-          <%= link_to shortcut_path(shortcut.id) do %>
+          <%= link_to shortcut_path(shortcut.id),class: "btn btn-link" do %>
             <%= shortcut.name %>
           <% end %>
         </td>
@@ -19,9 +19,11 @@
           <%= shortcut.key %>
         </td>
         <td>
-          ブックマーク登録人数:<%= shortcut.bookmarks.count %>人</br>
-          コメント件数：<%= shortcut.comments.count %>件</br>
-          使用頻度平均：<%= shortcut.comments.average(:rate).to_f.round(1) %>点
+          <i class="fas fa-tags">ブックマーク登録:<%= shortcut.bookmarks.count %>人</i>,
+          <i class="fas fa-comment">コメント：<%= shortcut.comments.count %>件</i>
+        </td>
+        <td>
+          <i class="fas fa-star">使用頻度平均：<%= shortcut.comments.average(:rate).to_f.round(1) %>点</i>
           <div id="star-rate-<%= shortcut.id %>"></div>
           <script>
           // ブラウザバックした時に星が増えないように（emptyメソッドを使って、一旦子要素を削除する）

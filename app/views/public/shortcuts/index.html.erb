@@ -1,7 +1,18 @@
-<h1>ユーザー用ショートカット一覧画面</h1>
-<%= link_to "ブックマークしたショートカットを見る", bookmarks_user_path(current_user.id) %>
-<% if @search_shortcuts %>
-  <%= render partial: 'public/shortcuts/shortcut', locals:{shortcuts: @search_shortcuts}  %>
-<% else %>
-  <%= render partial: 'public/shortcuts/shortcut', locals:{shortcuts: @shortcuts} %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <h3 class="col-6 offset-3 mt-5 mb-4 mini-title">ユーザー用ショートカット一覧画面</h3>
+  </div>
+  <div class="row">
+    <div class="mini-title">
+      <span class="fw-bold"><%= @category.name%></span>
+      <%= link_to bookmarks_user_path(current_user.id), class: "col-2 offset-8 btn btn-primary" do %>
+        <i class="fas fa-tags">MYブックマーク</i>
+      <% end %>
+      <% if @search_shortcuts %>
+        <%= render partial: 'public/shortcuts/shortcut', locals:{shortcuts: @search_shortcuts}  %>
+      <% else %>
+        <%= render partial: 'public/shortcuts/shortcut', locals:{shortcuts: @shortcuts} %>
+      <% end %>
+    </div>
+  </div>
+</div>

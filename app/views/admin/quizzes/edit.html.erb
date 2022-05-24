@@ -17,17 +17,17 @@
     <%= f.collection_select :category_id, Category.all,:id,:name ,prompt: "カテゴリを選んでください" %>
   </div>
   <div>
-      <%= f.label:正解 %>
       <%= f.text_field :choice1 %>
 
-      <%= f.label:不正解 %>
       <%= f.text_field :choice2 %>
 
-      <%= f.label:不正解 %>
       <%= f.text_field :choice3 %>
 
-      <%= f.label:不正解 %>
       <%= f.text_field :choice4 %>
+
+      <%= f.label "正解" %>
+      <%= f.text_field :answer %>
+
   </div>
   <%= f.submit "編集内容を保存する" %>
   <%= link_to "戻る",admin_quiz_path %>

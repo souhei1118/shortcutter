@@ -45,12 +45,9 @@ class Admin::ShortcutsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
 
   def shortcut_params
-    params.require(:shortcut).permit(:shortcut_image, :name, :key, :category_id, :video )
+    params.require(:shortcut).permit(:shortcut_image, :name, :key, :category_id )
   end
 end

@@ -12,54 +12,78 @@
             ようこそ、<%= current_user.nickname %>さん！
           </li>
           <li class="nav-item">
-            <%= link_to "マイページ",user_path(current_user), class: "nav-link" %>
+            <%= link_to user_path(current_user), class: "nav-link" do %>
+              <i class="fas fa-user">マイページ</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "ショートカット一覧",categories_path, class: "nav-link" %>
+            <%= link_to categories_path, class: "nav-link" do %>
+              <i class="fas fa-keyboard">ショートカット一覧</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "クイズに挑戦",quizzes_path, class: "nav-link" %>
+            <%= link_to quizzes_path, class: "nav-link" do %>
+              <i class="fas fa-question-circle">クイズに挑戦</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "お問合せ",inquiry_path, class: "nav-link" %>
+            <%= link_to inquiry_path, class: "nav-link" do %>
+              <i class="fas fa-envelope">お問合せ</i>
+            <% end %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, class: "nav-link", method: :delete do %>
-              ログアウト
+              <i class="fas fa-sign-out-alt">ログアウト</i>
             <% end %>
           </li>
           <!--管理者ログイン後のヘッダー-->
           <% elsif admin_signed_in? %>
           <li class="nav-item">
-            <%= link_to "会員管理",admin_users_path, class: "nav-link" %>
+            <%= link_to admin_users_path, class: "nav-link" do %>
+              <i class="fas fa-user">会員管理</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "ショートカット管理",admin_shortcuts_categories_path, class: "nav-link" %>
+            <%= link_to admin_shortcuts_categories_path, class: "nav-link" do %>
+              <i class="fas fa-keyboard">ショートカット一覧</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "カテゴリ管理",admin_categories_path, class: "nav-link" %>
+            <%= link_to admin_categories_path, class: "nav-link" do %>
+              <i class="fas fa-tag">カテゴリ管理</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "クイズ管理",admin_quizzes_categories_path, class: "nav-link" %>
+            <%= link_to admin_quizzes_categories_path, class: "nav-link" do %>
+              <i class="fas fa-question-circle">クイズ管理</i>
+            <% end %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_admin_session_path, class: "nav-link", method: :delete do %>
-              ログアウト
+              <i class="fas fa-sign-out-alt">ログアウト</i>
             <% end %>
           </li>
           <!--未ログイン時のヘッダー-->
           <% else %>
           <li class="nav-item">
-            <%= link_to "新規登録",new_user_registration_path, class: "nav-link" %>
+            <%= link_to new_user_registration_path, class: "nav-link" do %>
+              <i class="fas fa-user-plus">新規登録</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "ログイン",root_path, class: "nav-link" %>
+            <%= link_to root_path, class: "nav-link" do %>
+              <i class="fas fa-sign-in-alt">ログイン</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "お問合せ",inquiry_path, class: "nav-link" %>
+            <%= link_to inquiry_path, class: "nav-link" do %>
+              <i class="fas fa-envelope">お問合せ</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "管理者の方はこちら",new_admin_session_path, class: "nav-link" %>
+            <%= link_to new_admin_session_path, class: "nav-link" do %>
+              <i class="fas fa-user-lock">管理者の方はこちら</i>
+            <% end %>
           </li>
         <% end %>
       </ul>
