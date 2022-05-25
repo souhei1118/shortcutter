@@ -3,9 +3,9 @@ class Answer < ApplicationRecord
   belongs_to :quiz
 
   # 解答の判定メソッド
-  def judgment?(choise)
-    # もしchoice（選択肢）とtext（答え）が同じの時
-    if choice == text
+  def judgment?(answer)
+    # もしanswer（答え）とtext（解答）が同じの時
+    if answer == text
     # true(正解)にする
       true
     else

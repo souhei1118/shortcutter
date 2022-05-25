@@ -88,7 +88,7 @@
         <% end %>
       </ul>
       <form class="d-flex ms-auto" role="search">
-        <%= search_form_for @search, url:shortcuts_path do |f| %>
+        <%= search_form_for @search, url: search_path, method: :get do |f| %>
           <%= f.text_field :name_cont, placeholder: "ショートカットを検索...", class: "form-control me-2" %>
           <%= f.submit ("検索"),class: "btn btn-outline-success flex-shrink-0" %>
         <% end %>

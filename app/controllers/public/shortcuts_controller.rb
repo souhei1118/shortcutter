@@ -1,10 +1,10 @@
 class Public::ShortcutsController < ApplicationController
   def index
-    @shortcuts = Shortcut.all
+    @shortcuts = Shortcut.page(params[:page]).per(5)
     if params[:category_id].present?
       #presentメソッドでparams[:category_id]に値が含まれているか確認 => trueの場合下記を実行
       @category = Category.find(params[:category_id])
-      @shortcuts = @category.shortcuts
+      @shortcuts = @category.shortcuts.page(params[:page]).per(5)
     end
   end
 

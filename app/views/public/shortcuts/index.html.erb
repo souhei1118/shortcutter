@@ -6,13 +6,11 @@
     <div class="mini-title">
       <span class="fw-bold"><%= @category.name%></span>
       <%= link_to bookmarks_user_path(current_user.id), class: "col-2 offset-8 btn btn-primary" do %>
-        <i class="fas fa-tags">MYブックマーク</i>
+        <i class="fas fa-tags"> MYブックマーク</i>
       <% end %>
-      <% if @search_shortcuts %>
-        <%= render partial: 'public/shortcuts/shortcut', locals:{shortcuts: @search_shortcuts}  %>
-      <% else %>
-        <%= render partial: 'public/shortcuts/shortcut', locals:{shortcuts: @shortcuts} %>
-      <% end %>
+
+      <%= render partial: 'public/shortcuts/shortcut', locals:{shortcuts: @shortcuts} %>
+
     </div>
   </div>
 </div>

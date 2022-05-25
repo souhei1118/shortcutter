@@ -36,7 +36,12 @@ Rails.application.routes.draw do
 
     resources :categories,only: [:index] do
       resources :answer_managers do
-        resources :answers
+        member do
+          get "result" =>"/public/answer_managers#result"
+        end
+        #resources :answers
+
+        get "answers" => '/public/answers#create'
       end
     end
 
@@ -69,6 +74,9 @@ Rails.application.routes.draw do
 
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
+
+# 検索結果画面
+  get  'search' => 'search#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end

@@ -12,19 +12,8 @@
       </table>
     </div>
     <div class="col-6 offset-1 mt-3">
-      <h1 class="col-6 offset-3 mini-title">【問題】</h1>
-      <h5 class="col-8 offset-2 text-center mt-3 fw-bold btn-warning btn-lg active disabled">このコマンドは次のうちどれでしょう？</h5>
-      <div class="col mt-3 mini-title">
-        <%= link_to  @quiz.choice1, category_answer_manager_answers_path(@category, @answer_manager, choise: @quiz.choice1, quiz_id: @quiz.id), method: :post,class: "col-10 btn btn-dark btn-lg" %>
-      </div>
-      <div class="col mt-5 mini-title">
-        <%= link_to  @quiz.choice2, category_answer_manager_answers_path(@category, @answer_manager,choise: @quiz.choice2, quiz_id: @quiz.id), method: :post,class: "col-10 btn btn-dark btn-lg" %>
-      </div>
-      <div class="col mt-5 mini-title">
-        <%= link_to  @quiz.choice3, category_answer_manager_answers_path(@category, @answer_manager, choise: @quiz.choice3, quiz_id: @quiz.id), method: :post,class: "col-10 btn btn-dark btn-lg" %>
-      </div>
-      <div class="col mt-5 mini-title">
-        <%= link_to  @quiz.choice4,  category_answer_manager_answers_path(@category, @answer_manager , choise: @quiz.choice4, quiz_id: @quiz.id), method: :post,class: "col-10 btn btn-dark btn-lg" %>
+      <div class="choice" id="choice">
+        <%= render 'public/answer_managers/choice', answer_manager: @answer_manager, quiz: @quiz, category: @category %>
       </div>
     </div>
   </div>

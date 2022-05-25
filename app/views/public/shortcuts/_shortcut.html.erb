@@ -7,6 +7,7 @@
         <th></th>
       </tr>
     </thead>
+
     <tbody>
       <% shortcuts.each do |shortcut| %>
       <tr>
@@ -47,3 +48,4 @@
   <% else %>
   <p>ショートカットキーがまだ登録されていません。</p>
 <% end %>
+<%= paginate shortcuts %>

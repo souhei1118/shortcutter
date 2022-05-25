@@ -4,4 +4,5 @@ class AnswerManager < ApplicationRecord
   # 多対多になるので中間テーブル（AnswerManager）を作る
   belongs_to :user
   belongs_to :category
+  has_many :answers
 end
