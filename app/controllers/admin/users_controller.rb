@@ -18,6 +18,7 @@ class Admin::UsersController < ApplicationController
       flash[:success] = "会員情報を更新しました"
     else
       @user = User.find(params[:id])
+      flash[:alert] = "ニックネームとメールアドレスは必須です"
       render 'edit'
     end
   end

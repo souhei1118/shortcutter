@@ -14,7 +14,7 @@ class Admin::ShortcutsController < ApplicationController
   end
 
   def category
-    @categories = Category.all
+    @categories = Category.page(params[:page]).per(6)
   end
 
   def index

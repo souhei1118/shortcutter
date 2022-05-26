@@ -8,6 +8,7 @@
       <% @categories.each do |category| %>
         <p><%= link_to category.name, admin_shortcuts_path(category_id: category.id), class: "col-10 btn btn-success btn-lg" %></p>
       <% end %>
+      <%= paginate @categories %>
     </div>
   </div>
 </div>

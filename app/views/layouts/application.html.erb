@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/header',search: @search%>
     <% if notice %>
     	<div class="alert-success text-center" >
     	  <span id="notice"><%= notice %></span>

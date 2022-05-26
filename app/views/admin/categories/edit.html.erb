@@ -5,5 +5,6 @@
   <%= f.label :ショートカット名 %><%= f.text_field :name %>
 </div>admin_categories_path
 <%= f.submit "編集内容を保存する" %>
+<%= link_to "削除", admin_category_path(@categories,@category), method: :delete,data: {confirm: "本当に削除しますか？"} %>
   <%= link_to "戻る",admin_categories_path %>
 <% end %>

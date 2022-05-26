@@ -1,17 +1,18 @@
 <div class="result">
   <h1>クイズ結果画面</h1>
   結果は。。。</br>
-  <%#= @result.where(judgment?(answer) = true).count %>問正解しました！</br>
+  <%= @result.result_true_count %>問正解しました！</br>
 
-  <!--間違えた問題が存在するかを確認-->
-  <%# if @result.present? %>
+<!--間違えた問題が存在するかを確認-->
+  <% if @result.result_false_quiz.present? %>
     <!--間違えた問題の一覧を表示-->
-    <%# @result.quiz.each do |quiz| %>
-      <%#= quiz.name %>
-      <%#= quiz.key %>
-    <%# end %>
-  <%# else %>
-    <!--<p>全問正解です！素晴らしい！</p>-->
-  <%# end %>
+    あなたが間違えた問題はこちら！
+    <% @result.result_false_quiz.each do |quiz| %>
+      <%= quiz.name %>
+      <%= quiz.answer %>
+    <% end %>
+  <% else %>
+    <p>全問正解です！素晴らしい！</p>
+  <% end %>
   <%= link_to "クイズ選択画面へ", quizzes_path, class: "btn btn-success" %>
 </div>

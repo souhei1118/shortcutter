@@ -7,6 +7,7 @@ class Quiz < ApplicationRecord
   validates :choice2, presence: true
   validates :choice3, presence: true
   validates :choice4, presence: true
+  validates :answer, presence: true
 
   has_one_attached :quiz_gif
 

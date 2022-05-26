@@ -15,16 +15,16 @@ class Admin::QuizzesController < ApplicationController
 
   # クイズカテゴリ選択画面
   def category
-    @categories = Category.all
+    @categories = Category.page(params[:page]).per(6)
   end
 
   #　クイズ一覧画面
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.page(params[:page]).per(6)
     if params[:category_id].present?
       #presentメソッドでparams[:category_id]に値が含まれているか確認 => trueの場合下記を実行
       @category = Category.find(params[:category_id])
-      @quizzes = @category.quizzes
+      @quizzes = @category.quizzes.page(params[:page]).per(6)
     end
   end
 
@@ -51,7 +51,7 @@ class Admin::QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:name,:quiz_gif,:category_id,:choice1,:choice2,:choice3,:choice4,:answer)  
+    params.require(:quiz).permit(:name,:quiz_gif,:category_id,:choice1,:choice2,:choice3,:choice4,:answer)
   end
 
   def category_params

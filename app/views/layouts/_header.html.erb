@@ -36,6 +36,12 @@
               <i class="fas fa-sign-out-alt">ログアウト</i>
             <% end %>
           </li>
+          <form class="d-flex ms-auto" role="search">
+            <%= search_form_for search, url: search_path do |f| %>
+              <%= f.search_field :name_cont, placeholder: "ショートカットを検索...", class: "form-control me-2" %>
+              <%= f.submit ("検索"),class: "btn btn-outline-success flex-shrink-0" %>
+            <% end %>
+          </form>
           <!--管理者ログイン後のヘッダー-->
           <% elsif admin_signed_in? %>
           <li class="nav-item">
@@ -44,7 +50,7 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to admin_shortcuts_categories_path, class: "nav-link" do %>
+            <%= link_to categories_admin_shortcuts_path, class: "nav-link" do %>
               <i class="fas fa-keyboard">ショートカット一覧</i>
             <% end %>
           </li>
@@ -54,7 +60,7 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to admin_quizzes_categories_path, class: "nav-link" do %>
+            <%= link_to categories_admin_quizzes_path, class: "nav-link" do %>
               <i class="fas fa-question-circle">クイズ管理</i>
             <% end %>
           </li>
@@ -63,6 +69,7 @@
               <i class="fas fa-sign-out-alt">ログアウト</i>
             <% end %>
           </li>
+
           <!--未ログイン時のヘッダー-->
           <% else %>
           <li class="nav-item">
@@ -87,12 +94,6 @@
           </li>
         <% end %>
       </ul>
-      <form class="d-flex ms-auto" role="search">
-        <%= search_form_for @search, url: search_path, method: :get do |f| %>
-          <%= f.text_field :name_cont, placeholder: "ショートカットを検索...", class: "form-control me-2" %>
-          <%= f.submit ("検索"),class: "btn btn-outline-success flex-shrink-0" %>
-        <% end %>
-      </form>
     </div>
   </nav>
 </header>

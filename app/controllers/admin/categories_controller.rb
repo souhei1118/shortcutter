@@ -30,6 +30,13 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category = Category.find(params[:id]).destroy
+    @categories = Category.all
+    @category = Category.new
+    render 'index'
+  end
+
   private
 
   def category_params

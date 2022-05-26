@@ -2,7 +2,7 @@
   <%= form_with model: [shortcut, comment], local: false do |f| %>
 
   <!--レビュー-->
-  <%= f.label :rate,'あなたの使用頻度はどれくらい？' %>
+  <%= f.label :rate,'あなたの使用頻度はどれくらい？(必須)' %>
   <div id="star-rate-<%= shortcut.id %>">
     <%= f.hidden_field :rate, id: :review_star %>
   </div>
@@ -21,7 +21,7 @@
   </script>
 
   <!-- コメント -->
-  <%= f.text_area :comment, class: "form-control mt-1", rows: "3", placeholder: 'コメントがなくても評価のみで投稿できます（※８０文字以上入力すると投稿されません※）' %>
+  <%= f.text_area :comment, class: "form-control mt-1", rows: "3", placeholder: '※コメントが８０文字以上、もしくは星レビューが入力されていない場合投稿されません※' %>
   <%= f.submit 'レビューを投稿する', class: "col-4 offset-6 mt-1 btn btn-success" %>
   <% end %>
 </div>

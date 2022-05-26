@@ -3,18 +3,6 @@ class Public::QuizzesController < ApplicationController
     @categories = Category.all
   end
 
-  def show
-    @category = Category.find(params[:id])
-    @quiz = Quiz.where( 'id >= ?', rand(Quiz.first.id..Quiz.last.id) ).first
-  end
-
-  def result
-    # ログインしているユーザーが正解した結果を見つける
-    @result_true = current_user.answer.where(result: 'true')
-    # 不正解だった結果を見つける
-    @result_false = current_user.answer.where(result: 'false')
-  end
-
   private
 
   def quiz_params
