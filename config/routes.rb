@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "public/homes#top"
-  
+  get '/search' => 'search#index'
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -20,24 +21,35 @@ Rails.application.routes.draw do
   # ユーザー側のルーティング
   scope module: :public do
 
-    patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'  #退会確認画面
-    get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'  #退会完了画面
     resources :users,only: [:show, :edit, :update ] do
+      collection do
+        get 'unsubscribe'  #退会確認画面
+        patch 'withdraw'  #退会完了画面
+      end
+
       member do
         get '/bookmarks' => 'bookmarks#index' #ブックマーク一覧画面
       end
 
     end
 
-    get 'categories'=> 'categories#index'  #ショートカットカテゴリ選択画面
-
     resources :shortcuts,only: [:index, :show ] do
       resources :comments, only: [:create, :destroy ]
       resource :bookmarks, only: [:create, :destroy ]
     end
 
-    resources :quizzes,only: [:index, :show, :create ]
-    get 'quizzes/result'
+    resources :categories,only: [:index] do
+      resources :answer_managers do
+        member do
+          get "result" =>"/public/answer_managers#result"
+        end
+
+        get "answers" => '/public/answers#create'
+      end
+    end
+
+    resources :quizzes,only: [:index]
+
   end
 
   # 管理者側のルーティング
@@ -46,18 +58,31 @@ Rails.application.routes.draw do
 
     resources :users,only: [:index, :show, :edit, :update ]
 
-    resources :shortcuts
+    resources :shortcuts do
+      resources :comments, only: [:destroy ]
+      collection do
+        get 'categories' => 'shortcuts#category' #ショートカットカテゴリ選択画面
+      end
+    end
 
-    resources :categories,only: [:index, :create, :edit, :update ]
+    resources :categories,only: [:index, :create, :edit, :update, :destroy ]
 
-    resources :quizzes
+    resources :quizzes,only: [:new, :index, :show, :edit, :create, :update ] do
+      collection do
+        get 'categories' => 'quizzes#category' #クイズカテゴリ選択画面
+      end
+    end
 
   end
 
-# お問合せフォームルーティング
-  get   'inquiry'         => 'inquiry#index'     # 入力画面
+# お問合せフォームルーティング(未ログイン時でも利用可能)
+  get  'inquiry'         => 'inquiry#index'     # 入力画面
+  get  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  get  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
+
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end

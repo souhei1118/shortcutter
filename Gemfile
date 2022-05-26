@@ -62,3 +62,5 @@ end
 gem 'devise'
 gem 'devise-i18n'
 gem 'rmagick'
+gem 'ransack'
+gem 'kaminari','~> 1.2.1'

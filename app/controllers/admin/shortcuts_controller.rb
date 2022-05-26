@@ -7,17 +7,28 @@ class Admin::ShortcutsController < ApplicationController
     @shortcut = Shortcut.new(shortcut_params)
     if @shortcut.save
       redirect_to admin_shortcut_path(@shortcut.id)
+      flash[:success] = "ショートカットを作成しました"
     else
       render :new
     end
   end
 
+  def category
+    @categories = Category.page(params[:page]).per(6)
+  end
+
   def index
-    @shortcuts = Shortcut.all
+    @shortcuts = Shortcut.page(params[:page]).per(5)
+    if params[:category_id].present?
+      #presentメソッドでparams[:category_id]に値が含まれているか確認 => trueの場合下記を実行
+      @category = Category.find(params[:category_id])
+      @shortcuts = @category.shortcuts.page(params[:page]).per(5)
+    end
   end
 
   def show
     @shortcut = Shortcut.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   def edit
@@ -35,12 +46,9 @@ class Admin::ShortcutsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
 
   def shortcut_params
-    params.require(:shortcut).permit(:shortcut_image, :name, :key, :category_id, :video )
+    params.require(:shortcut).permit(:shortcut_image, :name, :key, :category_id )
   end
 end

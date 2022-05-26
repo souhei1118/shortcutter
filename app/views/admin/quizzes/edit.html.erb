@@ -1,2 +1,35 @@
-<h1>Admin::Quizzes#edit</h1>
-<p>Find me in app/views/admin/quizzes/edit.html.erb</p>
+<h1>管理者クイズ編集画面</h1>
+<div>
+  現在使用されている実演画像
+  <p><%= image_tag @quiz.get_quiz_gif(500,500) %></p>
+</div>
+<%= form_with model: @quiz, url: admin_quiz_path(@quiz.id), method: :patch do |f| %>
+  <div>
+    <%= f.label:実演画像 %>
+    <%= f.file_field :quiz_gif, accept: "image/*" %>
+  </div>
+  <div>
+    <%= f.label:ショートカット名 %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label:カテゴリ %>
+    <%= f.collection_select :category_id, Category.all,:id,:name ,prompt: "カテゴリを選んでください" %>
+  </div>
+  <div>
+      <%= f.text_field :choice1 %>
+
+      <%= f.text_field :choice2 %>
+
+      <%= f.text_field :choice3 %>
+
+      <%= f.text_field :choice4 %>
+
+      <%= f.label "正解" %>
+      <%= f.text_field :answer %>
+
+  </div>
+  <%= f.submit "編集内容を保存する" %>
+  <%= link_to "戻る",admin_quiz_path %>
+
+<% end %>

@@ -13,6 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+.mini-title {
+	text-align: center;
+  color: 	black;/*文字色*/
+  background-color: white;
+	border: solid 3px black;/*線色*/
+	padding: 0.5em;/*文字周りの余白*/
+	border-radius: 0.5em;/*角丸*/
+}
+/*main*/
+
+.alert-success {
+  position: relative;
+  padding: 1rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-danger {
+	position: relative;
+  padding: 1rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
 main{
 	height: 700px;
   background-image: url(pc.jpg);
@@ -24,6 +49,29 @@ main{
 	height: 700px;
 	background-color: rgba(255, 255, 255, 0.4);
 }
+
+/*ページネーション自体のデザイン*/
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+/*footer*/
 #footerwrap {
 	padding-top: 40px;
 	padding-bottom: 40px;

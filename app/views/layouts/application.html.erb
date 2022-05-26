@@ -13,17 +13,17 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/header',search: @search%>
     <% if notice %>
-    	<div class="alert alert-success" >
+    	<div class="alert-success text-center" >
     	  <span id="notice"><%= notice %></span>
     	</div>
     <% elsif flash[:success] %>
-    	<div class="alert alert-success" >
+    	<div class="alert-success text-center" >
       	<span id="success"><%= flash[:success] %></span>
     	</div>
     <% elsif flash[:alert] %>
-    	<div class="alert alert-danger">
+    	<div class="alert-danger text-center">
     	  <span id="alert"><%= flash[:alert] %></span>
     	</div>
     <% end %>

@@ -3,8 +3,11 @@ class Shortcut < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :category
 
+  validates :name,           presence: true
+  validates :key,            presence: true
+  validates :shortcut_image, presence: true
+
   has_one_attached :shortcut_image
-  has_one_attached :video
 
   def bookmarked_by?(user)
     bookmarks.exists?(user_id: user.id)

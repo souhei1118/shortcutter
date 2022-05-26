@@ -1,13 +1,42 @@
-<h1>管理者TOP画面</h1>
-<li>
-  <%= link_to "会員管理",admin_users_path %>
-</li>
-<li>
-  <%= link_to "ショートカット管理",admin_shortcuts_path %>
-</li>
-<li>
-  <%= link_to "カテゴリ管理",admin_categories_path %>
-</li>
-<li>
-  <%#= link_to "クイズ管理",admin_quizzes_path %>
-</li>
+<div class="container">
+  <div class="row">
+    <h3 class="mb-4 mt-3 fw-bold mini-title">管理者TOP画面</h3>
+    <div class="col-3">
+      <div class="card mt-4" style="width: 18rem;">
+        <%= image_tag('list.png', size: "300x300", class: "card-img-top" ) %>
+        <div class="card-body">
+          <h4 class="card-title mt-4 text-center fw-bold mini-title">会員管理</h4>
+          <%= link_to "管理する",admin_users_path, class: "btn btn-primary col-12 mt-3" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card mt-4" style="width: 18rem;">
+        <%= image_tag('keyboard.png', size: "300x300", class: "card-img-top" ) %>
+        <div class="card-body">
+          <h4 class="card-title mt-4 text-center fw-bold mini-title">ショートカット管理</h4>
+          <%= link_to "管理する",categories_admin_shortcuts_path, class: "btn btn-primary col-12 mt-3" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card mt-4" style="width: 18rem;">
+        <%= image_tag('tag.png', size: "300x300", class: "card-img-top" ) %>
+        <div class="card-body">
+          <h4 class="card-title mt-4 text-center fw-bold mini-title">カテゴリ管理</h4>
+          <%= link_to "管理する",admin_categories_path, class: "btn btn-primary col-12 mt-3" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card mt-4" style="width: 18rem;">
+        <%= image_tag('quizmen.jpg', size: "300x300", class: "card-img-top" ) %>
+        <div class="card-body">
+          <h4 class="card-title mt-4 text-center fw-bold mini-title">クイズ管理</h4>
+          <%= link_to "管理する",categories_admin_quizzes_path, class: "btn btn-primary col-12 mt-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
