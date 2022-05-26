@@ -1,51 +1,63 @@
-<h1>管理者ショートカット一覧画面</h1>
-<div>
-  <%= link_to "新規ショートカットキー登録", new_admin_shortcut_path %>
-</div>
-<% if @shortcuts.present? %>
-  <table>
-    <thead>
-      <tr>
-        <th>ショートカット名</th>
-        <th>コマンド</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @shortcuts.each do |shortcut| %>
-      <tr>
-        <td>
-          <%= link_to admin_shortcut_path(shortcut.id) do %>
-            <%= shortcut.name %>
-          <% end %>
-        </td>
-        <td>
-          <%= shortcut.key %>
-        </td>
-        <td>
-          ブックマーク登録人数:<%= shortcut.bookmarks.count %>人</br>
-          コメント件数：<%= shortcut.comments.count %>件</br>
-          使用頻度平均：<%= shortcut.comments.average(:rate).to_f.round(1) %>点
-          <div id="star-rate-<%= shortcut.id %>"></div>
-          <script>
-          // ブラウザバックした時に星が増えないように（emptyメソッドを使って、一旦子要素を削除する）
-          $('#star-rate-<%= shortcut.id %>').empty();
-          $('#star-rate-<%= shortcut.id %>').raty({
-            size: 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: '<%= shortcut.comments.average(:rate).to_f.round(1) %>',
-            //注目ポイント↑ 平均点を算出し、round関数で切り上げ
-          });
-          </script>
-        </td>
-      </tr>
+<div class="container">
+  <div class="row">
+    <h3 class="col-6 offset-3 mt-5 mb-4 mini-title">管理者ショートカット一覧画面</h3>
+  </div>
+  <div class="row">
+    <%= link_to new_admin_shortcut_path, class: "col-4 offset-7 mb-1 btn btn-warning" do %>
+      <i class="fas fa-keyboard"> 新規ショートカットキー登録</i>
+    <% end %>
+    <div class="mini-title">
+      <span class="fw-bold"><%= @category.name %></span>
+      <% if @shortcuts.present? %>
+        <table class="table table-hover bg-light mt-2 text-center">
+          <thead>
+            <tr>
+              <th>ショートカット名</th>
+              <th>コマンド ※()内はMacのコマンドです</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @shortcuts.each do |shortcut| %>
+            <tr>
+              <td>
+                <%= link_to admin_shortcut_path(shortcut.id),class: "btn btn-link" do %>
+                  <%= shortcut.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= shortcut.key %>
+              </td>
+              <td>
+                <i class="fas fa-tags">ブックマーク登録:<%= shortcut.bookmarks.count %>人</i>,
+                <i class="fas fa-comment">コメント：<%= shortcut.comments.count %>件</i>
+              </td>
+              <td>
+                <i class="fas fa-star">使用頻度平均：<%= shortcut.comments.average(:rate).to_f.round(1) %>点</i>
+                <div id="star-rate-<%= shortcut.id %>"></div>
+                <script>
+                // ブラウザバックした時に星が増えないように（emptyメソッドを使って、一旦子要素を削除する）
+                $('#star-rate-<%= shortcut.id %>').empty();
+                $('#star-rate-<%= shortcut.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: '<%= shortcut.comments.average(:rate).to_f.round(1) %>',
+                  //注目ポイント↑ 平均点を算出し、round関数で切り上げ
+                });
+                </script>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% else %>
+        <p>ショートカットキーがまだ登録されていません。</p>
       <% end %>
-    </tbody>
-  </table>
-  <% else %>
-  <p>ショートカットキーがまだ登録されていません。</p>
-<% end %>
+      <%= paginate @shortcuts %>
+    </div>
+  </div>
+</div>

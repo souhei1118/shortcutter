@@ -7,7 +7,7 @@
   		<div class="col-5">
   		<% unless user_signed_in? %>
         <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-        <div class="card mt-5">
+        <div class="card text-white bg-info mt-5">
           <article class="card-body">
       	    <h4 class="card-title text-center mb-4 mt-1">ログイン</h4>
             <p class="text-success text-center">Emailとパスワードを入力してください</p>

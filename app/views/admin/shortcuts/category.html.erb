@@ -2,7 +2,12 @@
   <div class="row">
     <h3 class="col-6 offset-3 mt-5 mb-4 mini-title">管理者ショートカットカテゴリ選択画面</h3>
   </div>
+  <div class="row">
+    <div class="py-3 mt-3 text-center mini-title">
+      <h1>管理するカテゴリを選んでください</h1>
+      <% @categories.each do |category| %>
+        <p><%= link_to category.name, admin_shortcuts_path(category_id: category.id), class: "col-10 btn btn-success btn-lg" %></p>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% @categories.each do |category| %>
-  <p><%= link_to category.name, admin_shortcuts_path(category_id: category.id), class: "btn btn-success" %></p>
-<% end %>

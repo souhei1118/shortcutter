@@ -20,3 +20,4 @@
   <%= @quiz.answer %>
 </div>
 <%= link_to "このクイズを編集する", edit_admin_quiz_path(@quiz) %>
+<%= link_to "クイズ一覧に戻る", admin_quizzes_path(category_id: @quiz.category.id) %>

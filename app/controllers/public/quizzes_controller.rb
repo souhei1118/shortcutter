@@ -8,9 +8,6 @@ class Public::QuizzesController < ApplicationController
     @quiz = Quiz.where( 'id >= ?', rand(Quiz.first.id..Quiz.last.id) ).first
   end
 
-  def create
-  end
-
   def result
     # ログインしているユーザーが正解した結果を見つける
     @result_true = current_user.answer.where(result: 'true')

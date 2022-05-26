@@ -2,15 +2,15 @@
 <h1 class="col-6 offset-3 mini-title">【第<%= (answer_manager.answers.count + 1) %>問】</h1>
 <h5 class="col-8 offset-2 text-center mt-3 fw-bold btn-warning btn-lg active disabled">このコマンドは次のうちどれでしょう？</h5>
 <div class="col mt-3 mini-title">
-  <%= link_to  quiz.choice1, category_answer_manager_answers_path(category, answer_manager, choice: quiz.choice1, quiz_id: quiz.id), method: :get, remote: true,class: "col-10 btn btn-dark btn-lg" %>
+  <%= link_to  quiz.choice1, category_answer_manager_answers_path(category, answer_manager, choice: quiz.choice1, quiz_id: quiz.id), method: :get,class: "col-10 btn btn-dark btn-lg" %>
 </div>
 <div class="col mt-5 mini-title">
-  <%= link_to  quiz.choice2, category_answer_manager_answers_path(category, answer_manager,choice: quiz.choice2, quiz_id: quiz.id), method: :get, remote: true,class: "col-10 btn btn-dark btn-lg" %>
+  <%= link_to  quiz.choice2, category_answer_manager_answers_path(category, answer_manager,choice: quiz.choice2, quiz_id: quiz.id), method: :get,class: "col-10 btn btn-dark btn-lg" %>
 </div>
 <div class="col mt-5 mini-title">
-  <%= link_to  quiz.choice3, category_answer_manager_answers_path(category, answer_manager, choice: quiz.choice3, quiz_id: quiz.id), method: :get, remote: true,class: "col-10 btn btn-dark btn-lg" %>
+  <%= link_to  quiz.choice3, category_answer_manager_answers_path(category, answer_manager, choice: quiz.choice3, quiz_id: quiz.id), method: :get,class: "col-10 btn btn-dark btn-lg" %>
 </div>
 <div class="col mt-5 mini-title">
-  <%= link_to  quiz.choice4,  category_answer_manager_answers_path(category, answer_manager , choice: quiz.choice4, quiz_id: quiz.id), method: :get, remote: true,class: "col-10 btn btn-dark btn-lg" %>
+  <%= link_to  quiz.choice4,  category_answer_manager_answers_path(category, answer_manager , choice: quiz.choice4, quiz_id: quiz.id), method: :get,class: "col-10 btn btn-dark btn-lg" %>
 </div>
 <!--選択肢の部分テンプレート-->

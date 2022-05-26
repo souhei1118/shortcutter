@@ -1,6 +1,6 @@
 class Public::BookmarksController < ApplicationController
   def index
-    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(10)
   end
 
   def create

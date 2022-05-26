@@ -8,9 +8,7 @@
       <%= link_to bookmarks_user_path(current_user.id), class: "col-2 offset-8 btn btn-primary" do %>
         <i class="fas fa-tags"> MYブックマーク</i>
       <% end %>
-
       <%= render partial: 'public/shortcuts/shortcut', locals:{shortcuts: @shortcuts} %>
-
     </div>
   </div>
 </div>
