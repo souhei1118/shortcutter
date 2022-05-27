@@ -1,6 +1,8 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
-    @categories = Category.all
+    @categories = Category.page(params[:page]).per(7)
     @category = Category.new
   end
 
@@ -32,7 +34,7 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id]).destroy
-    @categories = Category.all
+    @categories = Category.page(params[:page]).per(7)
     @category = Category.new
     render 'index'
   end

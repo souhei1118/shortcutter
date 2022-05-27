@@ -1,18 +1,36 @@
 <div class="result">
-  <h1>クイズ結果画面</h1>
-  結果は。。。</br>
-  <%= @result.result_true_count %>問正解しました！</br>
-
-<!--間違えた問題が存在するかを確認-->
-  <% if @result.result_false_quiz.present? %>
-    <!--間違えた問題の一覧を表示-->
-    あなたが間違えた問題はこちら！
-    <% @result.result_false_quiz.each do |quiz| %>
-      <%= quiz.name %>
-      <%= quiz.answer %>
-    <% end %>
-  <% else %>
-    <p>全問正解です！素晴らしい！</p>
-  <% end %>
-  <%= link_to "クイズ選択画面へ", quizzes_path, class: "btn btn-success" %>
+  <div class=container>
+    <div class="row">
+      <h3 class="col-3 offset-3 mt-1 mb-3 mini-title">☆結果発表☆</h3>
+    </div>
+    <div class="row">
+      <div class="col-8 offset-2 mini-title">
+        <h4>結果は。。。</h4>
+        <h2><%= @result.result_true_count %>問正解しました！</h2>
+      <!--間違えた問題が存在するかを確認-->
+        <% if @result.result_false_quiz.present? %>
+          <!--間違えた問題の一覧を表示-->
+          <h3>あなたが間違えた問題はこちら！</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ショートカット名</th>
+                <th>コマンド</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @result.result_false_quiz.each do |quiz| %>
+              <tr>
+                <td><%= quiz.name %></td>
+                <td><%= quiz.answer %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <h1>全問正解です！素晴らしい！</h1>
+        <% end %>
+        <%= link_to "クイズ選択画面へ", quizzes_path, class: "btn btn-success" %>
+      </div>
+    </div>
 </div>
