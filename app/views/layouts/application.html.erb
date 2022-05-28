@@ -27,6 +27,9 @@
     	  <span id="alert"><%= flash[:alert] %></span>
     	</div>
     <% end %>
+    <% if request.path == "/users" %>
+      <%= render "public/shared/error_messages", resource: resource %>
+    <% end %>
     <main>
       <div class="main-visual">
         <%= yield %>

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = Shortcut.ransack(params[:q])
-    @search_shortcuts = @search.result
+    @search_shortcuts = @search.result.page(params[:page]).per(6)
   end
 
   protected

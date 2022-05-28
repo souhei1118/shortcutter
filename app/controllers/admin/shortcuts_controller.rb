@@ -8,9 +8,10 @@ class Admin::ShortcutsController < ApplicationController
   def create
     @shortcut = Shortcut.new(shortcut_params)
     if @shortcut.save
-      redirect_to admin_shortcut_path(@shortcut.id)
       flash[:success] = "ショートカットを作成しました"
+      redirect_to admin_shortcut_path(@shortcut.id)
     else
+      flash[:alert] = "ショートカットの作成に失敗しました"
       render :new
     end
   end
@@ -30,7 +31,6 @@ class Admin::ShortcutsController < ApplicationController
 
   def show
     @shortcut = Shortcut.find(params[:id])
-    @category = Category.find(params[:id])
   end
 
   def edit

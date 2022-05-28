@@ -1,6 +1,6 @@
 class Admin::QuizzesController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def new
     @quiz = Quiz.new
   end
@@ -8,9 +8,10 @@ class Admin::QuizzesController < ApplicationController
   def create
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
-      redirect_to admin_quiz_path(@quiz.id)
       flash[:success] = "クイズを作成しました"
+      redirect_to admin_quiz_path(@quiz.id)
     else
+      flash[:alert] = "クイズの作成に失敗しました"
       render 'new'
     end
   end
@@ -46,6 +47,7 @@ class Admin::QuizzesController < ApplicationController
       flash[:success] = "クイズ情報を更新しました"
     else
       @quiz = Quiz.find(params[:id])
+      flash[:alert] = "クイズの情報の更新に失敗しました"
       render 'edit'
     end
   end
