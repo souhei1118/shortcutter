@@ -1,0 +1,40 @@
+<!--クイズの部分テンプレート-->
+<div class="choice" id="choice">
+  <div class="container">
+    <div class="row">
+      <div class="col-5 mt-5 py-5 mini-title">
+        <div class="mt-5 py-5 ">
+          <%= image_tag quiz.get_quiz_gif(500,500) %>
+        </div>
+        <table class="table mt-5">
+          <tr>
+            <th>ショートカット名</th>
+            <td><%= quiz.name %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-6 offset-1 mt-3">
+        <h1 class="col-6 offset-3 mini-title">【第<%= (answer_manager.answers.count + 1) %>問】</h1>
+        <h5 class="col-8 offset-2 text-center mt-3 fw-bold btn-warning btn-lg active disabled">このコマンドは次のうちどれでしょう？</h5>
+
+        <!--answerテーブルの解答の数が９問の時（最後の問題を解く時）に、同期通信にさせるメソッド-->
+        <% last_quiz = answer_manager.answers.count != 9 %>
+        <!--カウントが９以外の時はtrueを返し、９の時はfalseを返すことでremoteを変更し１〜９問目は非同期通信、１０問目の時は同期通信にすることができる-->
+
+        <div class="col mt-3 mini-title">
+          <%= link_to  quiz.choice1, category_answer_manager_answers_path(category, answer_manager, choice: quiz.choice1, quiz_id: quiz.id), method: :get, remote: last_quiz, class: "col-10 btn btn-dark btn-lg" %>
+        </div>
+        <div class="col mt-5 mini-title">
+          <%= link_to  quiz.choice2, category_answer_manager_answers_path(category, answer_manager,choice: quiz.choice2, quiz_id: quiz.id), method: :get, remote: last_quiz,class: "col-10 btn btn-dark btn-lg" %>
+        </div>
+        <div class="col mt-5 mini-title">
+          <%= link_to  quiz.choice3, category_answer_manager_answers_path(category, answer_manager, choice: quiz.choice3, quiz_id: quiz.id), method: :get, remote: last_quiz,class: "col-10 btn btn-dark btn-lg" %>
+        </div>
+        <div class="col mt-5 mini-title">
+          <%= link_to  quiz.choice4,  category_answer_manager_answers_path(category, answer_manager , choice: quiz.choice4, quiz_id: quiz.id), method: :get, remote: last_quiz,class: "col-10 btn btn-dark btn-lg" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--クイズの部分テンプレート-->

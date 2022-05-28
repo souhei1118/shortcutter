@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
+
+  def set_search
+    @search = Shortcut.ransack(params[:q])
+    @search_shortcuts = @search.result.page(params[:page]).per(6)
+  end
 
   protected
   def configure_permitted_parameters

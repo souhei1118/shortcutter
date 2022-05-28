@@ -1,43 +1,54 @@
-<h1>管理者ユーザー一覧画面</h1>
-<table>
-  <thead>
-    <tr>
-      <th>会員ID</th>
-      <th>ニックネーム</th>
-      <th>メールアドレス</th>
-      <th>会員ステータス</th>
-    </tr>
-  </thead>
-  <% @users.each do |user| %>
-  <tbody>
-    <tr>
-      <td>
-        <i class="fas fa-search"></i>
-        <%= user.id %>
-      </td>
-      <td>
-        <i class="far fa-user"></i>
-        <%= link_to admin_user_path(user), class: "btn-link" do %>
-          <%= user.nickname %>
-        <% end %>
-      </td>
-      <td>
-        <i class="fas fa-envelope"></i>
-        <%= user.email %>
-      </td>
-      <td>
-        <% if user.is_deleted == true %>
-          <p>
-            <span class="text-danger">退会済</span>
-          </p>
-        <% else %>
-          <p>
-            <span class="text-success">有効</span>
-          </p>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+<div class="container">
+  <div class="row">
+    <h3 class="col-6 offset-3 mt-3 mb-4 mini-title">管理者ユーザー一覧画面</h3>
+  </div>
+  <div class="row">
+    <div class="mini-title">
+      <div class="col">
+        <table class="table  table-hover bg-light mt-2 text-center">
+          <thead>
+            <tr>
+              <th>会員ID</th>
+              <th>ニックネーム</th>
+              <th>メールアドレス</th>
+              <th>会員ステータス</th>
+            </tr>
+          </thead>
+          <% @users.each do |user| %>
+          <tbody>
+            <tr>
+              <td>
+                <i class="fas fa-search"></i>
+                <%= user.id %>
+              </td>
+              <td>
+                <i class="fas fa-user"></i>
+                <%= link_to admin_user_path(user), class: "btn-link" do %>
+                  <%= user.nickname %>
+                <% end %>
+              </td>
+              <td>
+                <i class="fas fa-envelope"></i>
+                <%= user.email %>
+              </td>
+              <td>
+                <% if user.is_deleted == true %>
+                  <p>
+                    <span class="text-danger">退会済</span>
+                  </p>
+                <% else %>
+                  <p>
+                    <span class="text-success">有効</span>
+                  </p>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+      </div>
+      <%= paginate @users %>
+    </div>
+  </div>
+</div>
 

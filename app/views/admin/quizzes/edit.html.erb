@@ -1,2 +1,54 @@
-<h1>Admin::Quizzes#edit</h1>
-<p>Find me in app/views/admin/quizzes/edit.html.erb</p>
+<%= render 'layouts/errors', obj: @quiz %>
+<div class="container">
+  <div class="row">
+    <h3 class="col-3 mt-2 mb-4 mini-title">管理者クイズ編集画面</h3>
+  </div>
+  <%= form_with model: @quiz, url: admin_quiz_path(@quiz.id), method: :patch do |f| %>
+  <div class="row mini-title">
+    <div class="col-4 offset-1 mt-5">
+      <%= f.label:実演画像 %>
+      <%= f.file_field :quiz_gif, accept: "image/*",class: "form-control" %>
+      <table class="table mt-5">
+        <tr>
+          <th>ショートカット名</th>
+          <td><%= f.text_field :name ,class: "form-control"%></td>
+        </tr>
+        <tr>
+          <th>カテゴリ</th>
+          <td><%= f.collection_select :category_id, Category.all,:id,:name ,prompt: "カテゴリを選んでください",class: "form-control" %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-6">
+      <div class="col-2 fw-bold mini-title">選択肢一覧</div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">①
+            <%= f.text_field :choice1,class: "form-control" %>
+          </h>
+        </div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">②
+            <%= f.text_field :choice2,class: "form-control" %>
+          </h>
+        </div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">③
+            <%= f.text_field :choice3,class: "form-control" %>
+          </h>
+        </div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">④
+            <%= f.text_field :choice4,class: "form-control" %>
+          </h>
+        </div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">
+            <div class="text-danger">答</div>
+            <%= f.text_field :answer,class: "form-control" %>
+        </div>
+      <%= f.submit "編集内容を保存する",class: "offset-3 mt-2 btn btn-success" %>
+      <%= link_to "クイズ詳細に戻る", admin_quiz_path(@quiz),class: "mt-2 btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+</div>

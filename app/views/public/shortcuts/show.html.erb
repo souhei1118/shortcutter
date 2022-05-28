@@ -1,103 +1,39 @@
-<h1>ユーザー用ショートカットキー詳細画面</h1>
-<div>
-  <p><%= image_tag @shortcut.get_shortcut_image(100,100) %></p>
-</div>
-<div>
-  ショートカット名
-  <%= @shortcut.name %>
-</div>
-<div>
-  コマンド
-  <%= @shortcut.key %>
-</div>
+<%= render 'layouts/errors', obj: @comment %>
+<div class="container">
+  <div class="row">
+    <div class="col-5 mt-5 mini-title">
+      <div class="mt-5">
+        <%= image_tag @shortcut.get_shortcut_image(500,500) %>
+      </div>
+      <table class="table mt-5">
+        <tr>
+          <th>ショートカット名</th>
+          <td><%= @shortcut.name %></td>
+        </tr>
+        <tr>
+          <th>コマンド</th>
+          <td><%= @shortcut.key %></td>
+        </tr>
+        <tr id="shortcut_<%= @shortcut.id %>">
+          <th>ブックマークに登録</th>
+          <td class="bookmark-btn">
+            <%= render "public/bookmarks/bookmark-btn", shortcut: @shortcut %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-7 mt-3">
+      <!--レビューとコメントの入力フォーム-->
+      <div class="new-comment" id="new_comment">
+        <%= render 'public/comments/form', shortcut: @shortcut, comment: @comment %>
+      </div>
+      <!--レビューとコメントの入力フォーム-->
 
-<table>
-  <thaed>
-    <tr>
-      <th>ショートカット名</th>
-      <th>コマンド</th>
-      <th>ブックマークに登録</th>
-    </tr>
-  </thaed>
-  <tbody>
-    <tr>
-      <td><%= @shortcut.name %></td>
-      <td><%= @shortcut.key %></td>
-      <td>
-        <% if @shortcut.bookmarked_by?(current_user) %>
-          <p>
-            <%= link_to shortcut_bookmarks_path(@shortcut), method: :delete do %>
-              ♥
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to shortcut_bookmarks_path(@shortcut), method: :post do %>
-              ♡
-            <% end %>
-          </p>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<!--レビューとコメントの入力フォーム-->
-<%= form_with model: [@shortcut, @comment] do |f| %>
-
-<!--レビュー-->
-<div id="star">
-  <%= f.label :rate,'あなたの使用頻度はどれくらい？' %>
-  <%= f.hidden_field :rate, id: :review_star %>
-</div>
-
-<!-- 評価javascript -->
-<script>
-$('#star').raty({
-  size     : 36,
-  starOff:  '<%= asset_path('star-off.png') %>',
-  starOn : '<%= asset_path('star-on.png') %>',
-  starHalf: '<%= asset_path('star-half.png') %>',
-  scoreName: 'comment[rate]',
-  half: true,
-});
-</script>
-
-<!-- コメント -->
-<div>
-  <%= f.label :comment, 'コメント' %>
-  <%= f.text_area :comment, rows: "8",placeholder:'コメントがなくても評価のみで投稿できます' %>
-</div>
-<%= f.submit '投稿する', class:"btn btn-success" %>
-<% end %>
-
-<!--部分テンプレート予定　START-->
-レビュー一覧(<%= @shortcut.comments.count %>件)</br>
-<% @shortcut.comments.each do |comment| %>
-  <p>
-    <%= image_tag comment.user.get_profile_image(100,100) %>
-    ニックネーム:<%= comment.user.nickname %>さん
-
-    <!--レビュー-->
-    <p>評価：<%= comment.rate %>点</p>
-    <div id="star-rate-<%= comment.id %>"></div>
-    <script>
-    $('#star-rate-<%= comment.id %>').raty({
-      size: 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn : '<%= asset_path('star-on.png') %>',
-      starHalf: '<%= asset_path('star-half.png') %>',
-      half: true,
-      readOnly: true,
-      score: <%= comment.rate %>,
-    });
-    </script>
-    <!--コメント-->
-    <%= comment.comment %>
-    <% if comment.user == current_user %>
-      <%= link_to "自分のレビューを削除", shortcut_comment_path(comment.shortcut, comment), method: :delete,data: {confirm: "本当に削除しますか？"} %>
-    <% end %>
-  </p>
-<% end %>
-<!--部分テンプレート予定　FINISH-->
+      <!--コメント一覧　部分テンプレート-->
+      <div id="comments_area">
+        <%= render 'public/comments/review', shortcut: @shortcut %>
+      </div>
+      <!--コメント一覧　部分テンプレート-->
+    </div>
+  </div>
 </div>

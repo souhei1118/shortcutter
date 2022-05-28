@@ -1,0 +1,36 @@
+<div class="mt-2 mini-title">
+  <div class="col-4">
+    レビュー(最大5件表示）
+  </div>
+  <% shortcut.comments.last(5).each do |comment| %>
+    <div class="offset-1 d-flex fw-bold">
+    ニックネーム:<%= comment.user.nickname %>さん
+
+    <!--レビュー-->
+    使用頻度評価：<%= comment.rate %>点
+    <div id="star-rate-<%= comment.id %>"></div>
+    <script>
+    $('#star-rate-<%= comment.id %>').empty();
+    $('#star-rate-<%= comment.id %>').raty({
+      size: 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: <%= comment.rate %>,
+    });
+    </script>
+    </div>
+    <!--コメント-->
+    <div class="text-break">
+      <div class="col-2">
+      【コメント】<br>
+      </div>
+      <%= comment.comment %></br>
+      <% if current_admin.admin? %>
+        <%= link_to "このレビューを強制削除", admin_shortcut_comment_path(comment.shortcut, comment),remote: true, method: :delete,data: {confirm: "本当に削除しますか？"},class: "btn btn-danger btn-sm" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

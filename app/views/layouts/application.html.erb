@@ -13,21 +13,28 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/header',search: @search%>
     <% if notice %>
-    	<div>
+    	<div class="alert-success text-center" >
     	  <span id="notice"><%= notice %></span>
     	</div>
     <% elsif flash[:success] %>
-    	<div class="alert alert-success">
+    	<div class="alert-success text-center" >
       	<span id="success"><%= flash[:success] %></span>
     	</div>
     <% elsif flash[:alert] %>
-    	<div class="alert alert-danger">
+    	<div class="alert-danger text-center">
     	  <span id="alert"><%= flash[:alert] %></span>
     	</div>
     <% end %>
-    <%= yield %>
+    <% if request.path == "/users" %>
+      <%= render "public/shared/error_messages", resource: resource %>
+    <% end %>
+    <main>
+      <div class="main-visual">
+        <%= yield %>
+      </div>
+    </main>
     <%= render 'layouts/footer' %>
   </body>
 </html>

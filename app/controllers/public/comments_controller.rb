@@ -1,17 +1,19 @@
 class Public::CommentsController < ApplicationController
   def create
-    shortcut = Shortcut.find(params[:shortcut_id])
+    @shortcut = Shortcut.find(params[:shortcut_id])
     comment = current_user.comments.new(comment_params)
-    comment.shortcut_id = shortcut.id
+    comment.shortcut_id = @shortcut.id
     comment.save
-    redirect_to shortcut_path(shortcut)
-    flash[:success] = "レビューを投稿しました！"
+    @comment = Comment.new
+    render 'public/comments/review' #render先にjsファイルを指定
   end
 
   def destroy
     Comment.find(params[:id]).destroy
-    redirect_to shortcut_path(params[:shortcut_id])
-    flash[:success] = "レビューを削除しました"
+    #renderしたときに@shortcut,@commentのデータがないので@shortcut,@commentを定義
+    @shortcut = Shortcut.find(params[:shortcut_id])
+    @comment = Comment.new
+    render 'public/comments/review' #render先にjsファイルを指定
   end
 
   private

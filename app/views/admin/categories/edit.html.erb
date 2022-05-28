@@ -1,9 +1,23 @@
-<h1>管理者カテゴリ編集画面</h1>
-
-<%= form_with model: @category, url: admin_category_path(@category.id), method: :patch do |f| %>
-<div>
-  <%= f.label :ショートカット名 %><%= f.text_field :name %>
-</div>admin_categories_path
-<%= f.submit "編集内容を保存する" %>
-  <%= link_to "戻る",admin_categories_path %>
-<% end %>
+<%= render 'layouts/errors', obj: @category %>
+<div class="container">
+  <div class="row">
+    <h3 class="col-5 mt-5 mb-4 mini-title">管理者カテゴリ編集画面</h3>
+  </div>
+  <div class="row">
+    <div class="col-10 offset-1 py-5 mt-4 mini-title">
+      <div class="col-md-10 offset-1 mt-2 bg-light py-3">
+        <%= form_with model: @category, url: admin_category_path(@category.id), method: :patch do |f| %>
+          <div class="form-group row mt-3">
+            <%= f.label :カテゴリ %>
+            <div class="col-8 offset-2">
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <%= f.submit "編集内容を保存する", class: "col-md-3 offset-md-4 mt-5 btn btn-success" %>
+          <%= link_to "削除", admin_category_path(@category), method: :delete,data: {confirm: "本当に削除しますか？"},class: "col-1 mt-5 btn btn-danger" %>
+          <%= link_to "戻る",admin_categories_path, class: "col-1 mt-5 btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

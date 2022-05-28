@@ -1,0 +1,4 @@
+<!--id="comments_areaにをrenderで指定した部分テンプレートに更新-->
+$("#comments_area").html("<%= j(render 'public/comments/review', shortcut: @shortcut, comment: @comment) %>");
+<!--id="new_commentにをrenderで指定した部分テンプレートに更新-->
+$("#new_comment").html("<%= j(render 'public/comments/form', shortcut: @shortcut, comment: @comment) %>");
