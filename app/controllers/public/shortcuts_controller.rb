@@ -1,4 +1,6 @@
 class Public::ShortcutsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @shortcuts = Shortcut.page(params[:page]).per(5)
     if params[:category_id].present?

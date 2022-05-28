@@ -33,13 +33,13 @@ Rails.application.routes.draw do
 
     end
 
-    resources :shortcuts,only: [:index, :show ] do
-      resources :comments, only: [:create, :destroy ]
-      resource :bookmarks, only: [:create, :destroy ]
+    resources :shortcuts,only: [:index, :show] do
+      resources :comments, only: [:create, :destroy]
+      resource :bookmarks, only: [:create, :destroy]
     end
 
     resources :categories,only: [:index] do
-      resources :answer_managers do
+      resources :answer_managers,only: [:show, :create] do
         member do
           get "result" =>"/public/answer_managers#result"
         end
@@ -56,18 +56,18 @@ Rails.application.routes.draw do
   namespace :admin do
     root "homes#top"
 
-    resources :users,only: [:index, :show, :edit, :update ]
+    resources :users,only: [:index, :show, :edit, :update]
 
-    resources :shortcuts do
-      resources :comments, only: [:destroy ]
+    resources :shortcuts,only: [:new, :index, :show, :edit, :create, :update] do
+      resources :comments, only: [:destroy]
       collection do
         get 'categories' => 'shortcuts#category' #ショートカットカテゴリ選択画面
       end
     end
 
-    resources :categories,only: [:index, :create, :edit, :update, :destroy ]
+    resources :categories,only: [:index, :create, :edit, :update, :destroy]
 
-    resources :quizzes,only: [:new, :index, :show, :edit, :create, :update ] do
+    resources :quizzes,only: [:new, :index, :show, :edit, :create, :update] do
       collection do
         get 'categories' => 'quizzes#category' #クイズカテゴリ選択画面
       end

@@ -1,8 +1,8 @@
 <div class="mt-2 mini-title">
   <div class="col-4">
-    レビュー(最大３件表示）
+    レビュー(最大5件表示）
   </div>
-  <% shortcut.comments.last(3).each do |comment| %>
+  <% shortcut.comments.last(5).each do |comment| %>
     <div class="offset-1 d-flex fw-bold">
     ニックネーム:<%= comment.user.nickname %>さん
 
@@ -29,7 +29,7 @@
       </div>
       <%= comment.comment %></br>
       <% if current_admin.admin? %>
-        <%= link_to "このレビューを強制削除", admin_shortcut_comment_path(comment.shortcut, comment),remote: true, method: :delete,data: {confirm: "本当に削除しますか？"} %>
+        <%= link_to "このレビューを強制削除", admin_shortcut_comment_path(comment.shortcut, comment),remote: true, method: :delete,data: {confirm: "本当に削除しますか？"},class: "btn btn-danger btn-sm" %>
       <% end %>
     </div>
   <% end %>

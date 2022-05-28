@@ -8,10 +8,7 @@
       <% @categories.each do |category| %>
         <p><%= link_to category.name, category_answer_managers_path(category), method: :post, class: "col-10 btn btn-primary btn-lg" %></p>
       <% end %>
+      <%= paginate @categories %>
     </div>
   </div>
 </div>
-
-
-<% @categories.each do |category| %>
-<% end %>

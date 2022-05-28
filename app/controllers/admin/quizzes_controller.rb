@@ -1,4 +1,6 @@
 class Admin::QuizzesController < ApplicationController
+  before_action :authenticate_admin!
+  
   def new
     @quiz = Quiz.new
   end

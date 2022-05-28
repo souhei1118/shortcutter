@@ -1,4 +1,6 @@
 class Public::AnswerManagersController < ApplicationController
+  before_action :authenticate_user!
+  
   def show
     @category = Category.find(params[:category_id])
     @answer_manager = AnswerManager.find(params[:id])

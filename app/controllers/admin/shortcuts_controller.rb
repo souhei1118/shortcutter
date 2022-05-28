@@ -1,4 +1,6 @@
 class Admin::ShortcutsController < ApplicationController
+  before_action :authenticate_admin!
+
   def new
     @shortcut = Shortcut.new
   end
@@ -42,6 +44,7 @@ class Admin::ShortcutsController < ApplicationController
       flash[:success] = "ショートカット情報を更新しました"
     else
       @shortcut = Shortcut.find(params[:id])
+      flash[:alert] = "ショートカット情報の更新に失敗しました"
       render 'edit'
     end
   end

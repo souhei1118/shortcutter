@@ -1,23 +1,51 @@
-<h1>管理者クイズ詳細画面</h1>
-
-<div>
-  <p>
-    <%= image_tag @quiz.get_quiz_gif(500,500) %>
-  </p>
+<div class="container">
+  <div class="row">
+    <h3 class="col-3 mt-2 mb-4 mini-title">管理者クイズ詳細画面</h3>
+  </div>
+   <div class="row mini-title">
+    <div class="col-4 mt-5">
+      <%= image_tag @quiz.get_quiz_gif(500,500) %>
+      <table class="table mt-5">
+        <tr>
+          <th>ショートカット名</th>
+          <td><%= @quiz.name %></td>
+        </tr>
+        <tr>
+          <th>カテゴリ</th>
+          <td><%= @quiz.category.name %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-7 offset-1">
+      <div class="col-2 fw-bold mini-title">選択肢一覧</div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">①
+            <%= @quiz.choice1 %>
+          </h>
+        </div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">②
+            <%= @quiz.choice2 %>
+          </h>
+        </div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">③
+            <%= @quiz.choice3 %>
+          </h>
+        </div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">④
+            <%= @quiz.choice4 %>
+          </h>
+        </div>
+        <div class="col-10 offset-1 mt-3 mini-title">
+          <h3 class="d-flex">
+            <div class="text-danger">答</div>
+            <%= @quiz.answer %>
+          </h>
+        </div>
+      <%= link_to "このクイズを編集する", edit_admin_quiz_path(@quiz),class: "offset-4 mt-2 btn btn-secondary" %>
+      <%= link_to "クイズ一覧に戻る", admin_quizzes_path(category_id: @quiz.category.id),class: "mt-2 btn btn-primary" %>
+    </div>
+   </div>
 </div>
-<div>
-  ショートカット名
-  <%= @quiz.name %>
-</div>
-<div>
-  カテゴリ：<%= @quiz.category.name %>
-</div>
-<div>
-  <%= @quiz.choice1 %>
-  <%= @quiz.choice2 %>
-  <%= @quiz.choice3 %>
-  <%= @quiz.choice4 %>
-  <%= @quiz.answer %>
-</div>
-<%= link_to "このクイズを編集する", edit_admin_quiz_path(@quiz) %>
-<%= link_to "クイズ一覧に戻る", admin_quizzes_path(category_id: @quiz.category.id) %>
