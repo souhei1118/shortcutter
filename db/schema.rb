@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_14_151357) do
+ActiveRecord::Schema.define(version: 2022_05_23_120322) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,21 @@ ActiveRecord::Schema.define(version: 2022_05_14_151357) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "answer_managers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.string "text"
+    t.integer "answer_manager_id"
+    t.integer "quiz_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "shortcut_id"
@@ -75,18 +90,14 @@ ActiveRecord::Schema.define(version: 2022_05_14_151357) do
     t.float "rate"
   end
 
-  create_table "quiz_choices", force: :cascade do |t|
-    t.integer "quiz_id"
-    t.boolean "correct_answer", default: false, null: false
-    t.string "choice"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["quiz_id"], name: "index_quiz_choices_on_quiz_id"
-  end
-
   create_table "quizzes", force: :cascade do |t|
     t.string "name"
     t.integer "category_id"
+    t.string "choice1"
+    t.string "choice2"
+    t.string "choice3"
+    t.string "choice4"
+    t.string "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_quizzes_on_category_id"
@@ -117,6 +128,5 @@ ActiveRecord::Schema.define(version: 2022_05_14_151357) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "quiz_choices", "quizzes"
   add_foreign_key "quizzes", "categories"
 end

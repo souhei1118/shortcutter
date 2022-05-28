@@ -1,6 +1,14 @@
-<h1>ユーザーショートカットカテゴリ選択画面</h1>
-<h1>学びたいカテゴリを選択しよう！</h1>
-<% @categories.each do |category| %>
-  <p><%= link_to category.name, shortcuts_path(category_id: category.id), class: "btn btn-success" %></p>
-<% end %>
-
+<div class="container">
+  <div class="row">
+    <h3 class="col-6 offset-3 mt-5 mb-4 mini-title">ショートカットカテゴリ選択画面</h3>
+  </div>
+  <div class="row">
+    <div class="py-3 mt-3 text-center mini-title">
+      <h1>学びたいカテゴリを選ぼう！</h1>
+      <% @categories.each do |category| %>
+        <p><%= link_to category.name, shortcuts_path(category_id: category.id), class: "col-10 btn btn-success btn-lg" %></p>
+      <% end %>
+      <%= paginate @categories %>
+    </div>
+  </div>
+</div>

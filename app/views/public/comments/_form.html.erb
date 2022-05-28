@@ -1,0 +1,27 @@
+<div class="mt-2 mini-title">
+  <%= form_with model: [shortcut, comment], local: false do |f| %>
+
+  <!--レビュー-->
+  <%= f.label :rate,'あなたの使用頻度はどれくらい？(必須)' %>
+  <div id="star-rate-<%= shortcut.id %>">
+    <%= f.hidden_field :rate, id: :review_star %>
+  </div>
+
+  <!-- 評価javascript -->
+  <script>
+  $('#star-rate-<%= shortcut.id %>').empty();
+  $('#star-rate-<%= shortcut.id %>').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'comment[rate]',
+    half: true,
+  });
+  </script>
+
+  <!-- コメント -->
+  <%= f.text_area :comment, class: "form-control mt-1", rows: "3", placeholder: '※コメントが８０文字以上、もしくは星レビューが入力されていない場合投稿されません※' %>
+  <%= f.submit 'レビューを投稿する', class: "col-4 offset-6 mt-1 btn btn-success" %>
+  <% end %>
+</div>

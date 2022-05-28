@@ -1,0 +1,2 @@
+<!--id="choiceにrenderで指定した部分テンプレートに更新-->
+$("#choice").html("<%= j(render 'public/answer_managers/choice', answer_manager: @answer_manager, quiz: @quiz, category: @category ) %>");

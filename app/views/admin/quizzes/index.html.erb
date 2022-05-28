@@ -1,2 +1,44 @@
-<h1>Admin::Quizzes#index</h1>
-<p>Find me in app/views/admin/quizzes/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h3 class="col-6 offset-3 mt-5 mb-4 mini-title">管理者クイズ一覧画面</h3>
+  </div>
+  <div class="row">
+    <%= link_to new_admin_quiz_path, class: "col-3 offset-5 mb-1 btn btn-warning" do %>
+      <i class="fas fa-question-circle"> 新規クイズ登録</i>
+    <% end %>
+    　<%= link_to categories_admin_quizzes_path, class: "col-3 mb-1 btn btn-info" do %>
+      <i class="fas fa-tag"> カテゴリ選択画面に戻る</i>
+    <% end %>
+    <div class="mini-title">
+      <span class="fw-bold"><%= @category.name %></span>
+      <% if @quizzes.present? %>
+        <table class="table table-hover bg-light mt-2 text-center">
+          <thead>
+            <tr>
+              <th>ショートカット名</th>
+              <th>解答</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @quizzes.each do |quiz| %>
+            <tr>
+              <td>
+                <%= link_to admin_quiz_path(quiz.id),class: "btn btn-link" do %>
+                  <%= quiz.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= quiz.answer %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% else %>
+        <p>クイズがまだ登録されていません。</p>
+      <% end %>
+      <%= paginate @quizzes %>
+    </div>
+  </div>
+</div>

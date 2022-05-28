@@ -1,21 +1,19 @@
 class Public::BookmarksController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
-    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(10)
   end
 
   def create
-    shortcut = Shortcut.find(params[:shortcut_id])
-    bookmark = current_user.bookmarks.new(shortcut_id: shortcut.id)
+    @shortcut = Shortcut.find(params[:shortcut_id])
+    bookmark = @shortcut.bookmarks.new(user_id: current_user.id)
     bookmark.save
-    redirect_to shortcut_path(shortcut)
-    flash[:success] = "ブックマークに登録しました"
   end
 
   def destroy
-    shortcut = Shortcut.find(params[:shortcut_id])
-    bookmark = current_user.bookmarks.find_by(shortcut_id: shortcut.id)
+    @shortcut = Shortcut.find(params[:shortcut_id])
+    bookmark = @shortcut.bookmarks.find_by(user_id: current_user.id)
     bookmark.destroy
-    redirect_to shortcut_path(shortcut)
-    flash[:success] = "ブックマークから削除しました"
   end
 end
