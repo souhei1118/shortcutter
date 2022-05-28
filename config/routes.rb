@@ -33,13 +33,13 @@ Rails.application.routes.draw do
 
     end
 
-    resources :shortcuts,only: [:index, :show ] do
-      resources :comments, only: [:create, :destroy ]
-      resource :bookmarks, only: [:create, :destroy ]
+    resources :shortcuts,only: [:index, :show] do
+      resources :comments, only: [:create, :destroy]
+      resource :bookmarks, only: [:create, :destroy]
     end
 
     resources :categories,only: [:index] do
-      resources :answer_managers do
+      resources :answer_managers,only: [:show, :create] do
         member do
           get "result" =>"/public/answer_managers#result"
         end

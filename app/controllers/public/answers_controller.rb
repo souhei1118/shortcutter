@@ -24,10 +24,8 @@ class Public::AnswersController < ApplicationController
         render 'public/answer_managers/result'
       end
     else
-      #①パラメータのquiz_idがnilの時（クイズを一問も答えていない時）一番初めの問題はここでまず一つ取得
+      #①パラメータのquiz_idがnilの時（クイズを一問も答えていない時）一番初めの問題はここでまずランダムに一つ取得
       @quiz = @category.quizzes.where('id >= ?', rand(Quiz.first.id..Quiz.last.id) ).first
     end
-    #last_quiz = Quiz.find(params[:quiz_id])
-    #redirect_to category_answer_manager_path(params[:category_id],params[:answer_manager_id], quiz_id: last_quiz.id )
   end
 end

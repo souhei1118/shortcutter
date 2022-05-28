@@ -29,7 +29,7 @@
       </div>
       <%= comment.comment %></br>
       <% if current_admin.admin? %>
-        <%= link_to "このレビューを強制削除", admin_shortcut_comment_path(comment.shortcut, comment),remote: true, method: :delete,data: {confirm: "本当に削除しますか？"} %>
+        <%= link_to "このレビューを強制削除", admin_shortcut_comment_path(comment.shortcut, comment),remote: true, method: :delete,data: {confirm: "本当に削除しますか？"},class: "btn btn-danger btn-sm" %>
       <% end %>
     </div>
   <% end %>

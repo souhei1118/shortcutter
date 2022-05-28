@@ -6,7 +6,11 @@
     <div class="row">
       <div class="col-8 offset-2 mini-title">
         <h4>結果は。。。</h4>
-        <h2><%= @result.result_true_count %>問正解しました！</h2>
+        <h2>
+          <div class="text-danger">
+            <%= @result.result_true_count %>問正解しました！
+          </div>
+        </h2>
       <!--間違えた問題が存在するかを確認-->
         <% if @result.result_false_quiz.present? %>
           <!--間違えた問題の一覧を表示-->
