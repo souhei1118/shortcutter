@@ -28,7 +28,7 @@
  - アプリケーション詳細設計(作成予定)
 
 ## 開発環境
-- OS：Mac
+- OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery or React（Reactを使う場合はあまり時間がかからないような機能のみの実装に挑戦することにする）
