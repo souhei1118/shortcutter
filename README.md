@@ -1,4 +1,4 @@
-# ショートカッター（ShortCutter）
+#  [ショートカッター](https://shortcutter.jp/)
 <div align="center">
   <img width="250" height="250" src="https://user-images.githubusercontent.com/100746049/170950750-dfeeaf4f-4c2d-48ba-a552-fe96cff10cfa.png">
 </div>
