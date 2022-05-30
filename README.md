@@ -23,19 +23,18 @@
  - 電車などのスキマ時間の活用時
 
 ## 設計書
- - UIフロー（User)</br>
+ - UIフロー（User)修正中</br>
  <details>
   <summary>クリックして下さい</summary>
 
-  <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
+  
 
  </details>
- - UIフロー(admin)</br>
+ - UIフロー(admin)修正中</br>
  <details>
   <summary>クリックして下さい</summary>
 
-  <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
-
+  
  </details>
  - ER図<br>
  <details>
@@ -44,18 +43,18 @@
   <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
 
  </details>
- - テーブル設計書(作成予定)
+ - テーブル設計書(修正中)
  <details>
   <summary>クリックして下さい</summary>
 
-  <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
+  
 
  </details>
- - アプリケーション詳細設計(作成予定)
+ - アプリケーション詳細設計(修正中)
  <details>
   <summary>クリックして下さい</summary>
 
-  <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
+  
 
  </details>
 
