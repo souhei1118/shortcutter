@@ -23,9 +23,41 @@
  - 電車などのスキマ時間の活用時
 
 ## 設計書
- - ER図(作成予定)
+ - UIフロー（User)</br>
+ <details>
+  <summary>クリックして下さい</summary>
+
+  <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
+
+ </details>
+ - UIフロー(admin)</br>
+ <details>
+  <summary>クリックして下さい</summary>
+
+  <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
+
+ </details>
+ - ER図<br>
+ <details>
+  <summary>クリックして下さい</summary>
+
+  <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
+
+ </details>
  - テーブル設計書(作成予定)
+ <details>
+  <summary>クリックして下さい</summary>
+
+  <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
+
+ </details>
  - アプリケーション詳細設計(作成予定)
+ <details>
+  <summary>クリックして下さい</summary>
+
+  <img width="861" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170939224-3d798024-0026-448e-9166-a27e0c449ffb.png">
+
+ </details>
 
 ## 開発環境
 - OS：Linux(CentOS)
