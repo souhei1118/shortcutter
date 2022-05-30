@@ -5,7 +5,7 @@
   <div class="row">
     <div class="py-3 mt-3 text-center mini-title">
       <h1>挑戦するクイズのカテゴリを選ぼう！</h1>
-      <% @categories.each do |category| %>
+      <% @categories.last(2).each do |category| %>
         <p><%= link_to category.name, category_answer_managers_path(category), method: :post, class: "col-10 btn btn-primary btn-lg" %></p>
       <% end %>
       <%= paginate @categories %>
