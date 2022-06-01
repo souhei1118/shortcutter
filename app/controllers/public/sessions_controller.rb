@@ -6,7 +6,7 @@ class Public::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   # def new
-  #   super
+  #  super
   # end
 
   # POST /resource/sign_in
@@ -18,8 +18,6 @@ class Public::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-
-  protected
 
   def reject_user
     #入力されたemailからアカウントを1件取得

@@ -25,7 +25,7 @@ class Public::AnswersController < ApplicationController
       end
     else
       #①パラメータのquiz_idがnilの時（クイズを一問も答えていない時）一番初めの問題はここでまずランダムに一つ取得
-      @quiz = @category.quizzes.where('id >= ?', rand(Quiz.first.id..Quiz.last.id) ).first
+      @quiz = @category.quizzes.where('id >= ?', rand(@category.quizzes.first.id..@category.quizzes.last.id) ).first
     end
   end
 end

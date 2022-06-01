@@ -1,4 +1,13 @@
-<% @search_shortcuts.each do |shortcut| %>
-  <%= shortcut.name %>
-  <%= shortcut.key %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <h3 class="col-3 offset-1 mt-2 mb-2s mini-title">検索結果画面</h3>
+  </div>
+  <div class="row">
+    <div class="mini-title">
+      <%= link_to bookmarks_user_path(current_user.id), class: "col-2 offset-8 btn btn-primary" do %>
+        <i class="fas fa-tags"> MYブックマーク</i>
+      <% end %>
+      <%= render partial: 'search/search', locals:{shortcuts: @search_shortcuts} %>
+    </div>
+  </div>
+</div>
