@@ -14,10 +14,4 @@ class Public::ShortcutsController < ApplicationController
     @shortcut = Shortcut.find(params[:id])
     @comment = Comment.new
   end
-
-  private
-
-  def shortcut_params
-    params.require(:shortcut).permit(:shortcut_image, :name, :key, :category_id )
-  end
 end
