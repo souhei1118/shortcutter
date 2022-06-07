@@ -28,10 +28,10 @@
  - 電車などのスキマ時間の活用時（レスポンシブ対応予定）
 
 ## 設計書
-- UIフロー（user）（修正中）<br/>
+- UIフロー（user）<br/>
 <details>
   <summary>クリックして下さい</summary>
-
+  <img width="937" alt="ショートカッター画面遷移図（ユーザー）" src="https://user-images.githubusercontent.com/100746049/172285176-2c7ed2fa-8ba3-410b-b5da-2be9954e5076.png">
 </details>
 
 - UIフロー（admin）<br/>
