@@ -28,25 +28,25 @@
  - 電車などのスキマ時間の活用時（レスポンシブ対応予定）
 
 ## 設計書
-- UIフロー（user）<br/>
+- 【UIフロー（user）】<br/>
 <details>
   <summary>クリックして下さい</summary>
   <img width="937" alt="ショートカッター画面遷移図（ユーザー）" src="https://user-images.githubusercontent.com/100746049/172285176-2c7ed2fa-8ba3-410b-b5da-2be9954e5076.png">
 </details>
 
-- UIフロー（admin）<br/>
+- 【UIフロー（admin）】<br/>
 <details>
   <summary>クリックして下さい</summary>
   <img width="1128" alt="ショートカッター画面遷移図（管理者）" src="https://user-images.githubusercontent.com/100746049/172284052-1c5d23a7-2973-45e1-8ff8-8ecb6069817d.png">
 </details>
 
-- ER図<br/>
+- 【ER図】<br/>
 <details>
   <summary>クリックして下さい</summary>
   <img width="860" alt="shortcutter_ER図" src="https://user-images.githubusercontent.com/100746049/170949521-d57fddb4-3cf7-438f-815a-7229a3b193f5.png">  
 </details>
 
-- テーブル定義書<br/>
+- 【テーブル定義書】<br/>
 <details>
   <summary>クリックして下さい</summary>
   <img width="909" alt="shortcutter_テーブル定義書①" src="https://user-images.githubusercontent.com/100746049/170949611-be5a404a-5abf-4427-a5ad-75f2cb9faf40.png">
@@ -54,10 +54,17 @@
   <img width="906" alt="shortcutter_テーブル定義書③" src="https://user-images.githubusercontent.com/100746049/170949803-47132d52-3740-4a83-897d-7feb4df333e4.png">
 </details>
 
-- アプリケーション詳細設計（修正中）<br/>
+- 【アプリケーション詳細設計】<br/>
 <details>
   <summary>クリックして下さい</summary>
-  
+  <img width="910" alt="ショートカッターアプリケーション詳細設計（ユーザー）" src="https://user-images.githubusercontent.com/100746049/172340771-10d648c3-5c8f-45fa-af97-b8e22509d7b5.png">
+  <img width="912" alt="ショートカッターアプリケーション詳細設計（管理者）" src="https://user-images.githubusercontent.com/100746049/172340916-bf2e8410-615f-46ac-ae57-c79a1e4c74db.png">
+</details>
+
+- 【使用Gem】<br/>
+<details>
+  <summary>クリックして下さい</summary>
+  <img width="384" alt="ショートカッター使用Gem" src="https://user-images.githubusercontent.com/100746049/172341033-2a5e50dc-38d5-462c-8f2f-e113c6f93b02.png">
 </details>
 
 ## 開発環境
