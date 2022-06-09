@@ -21,9 +21,6 @@ class Shortcut < ApplicationRecord
     shortcut_image.variant(
       resize_to_limit: [width, height],
       loader: { page: nil }, # GIFアニメーションの全フレームを変換する
-      coalesce: true, # アニメーションシーケンスの最適化
-      deconstruct: true, # アニメーションシーケンスの最適化2
-      layers: 'Optimize', # GIFアニメーションを最適化
     )
   end
 
