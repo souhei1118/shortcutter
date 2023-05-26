@@ -1,0 +1,18 @@
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bootsnap-1.11.1/ext/bootsnap
+/Users/takashisouhei/.rbenv/versions/3.1.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-ck4s8z sitelibdir\=./.gem.20230527-67587-ck4s8z clean
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-ck4s8z sitelibdir\=./.gem.20230527-67587-ck4s8z
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-ck4s8z sitelibdir\=./.gem.20230527-67587-ck4s8z install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20230527-67587-ck4s8z/bootsnap
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-ck4s8z sitelibdir\=./.gem.20230527-67587-ck4s8z clean

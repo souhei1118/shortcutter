@@ -1,0 +1,18 @@
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/websocket-driver-0.7.5/ext/websocket-driver
+/Users/takashisouhei/.rbenv/versions/3.1.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-mt0dtn sitelibdir\=./.gem.20230527-67587-mt0dtn clean
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-mt0dtn sitelibdir\=./.gem.20230527-67587-mt0dtn
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-mt0dtn sitelibdir\=./.gem.20230527-67587-mt0dtn install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20230527-67587-mt0dtn
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-mt0dtn sitelibdir\=./.gem.20230527-67587-mt0dtn clean

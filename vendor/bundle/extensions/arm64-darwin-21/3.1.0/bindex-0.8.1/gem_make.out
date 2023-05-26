@@ -1,0 +1,18 @@
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+/Users/takashisouhei/.rbenv/versions/3.1.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-94uahr sitelibdir\=./.gem.20230527-67587-94uahr clean
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-94uahr sitelibdir\=./.gem.20230527-67587-94uahr
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-94uahr sitelibdir\=./.gem.20230527-67587-94uahr install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20230527-67587-94uahr/skiptrace/internal
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-94uahr sitelibdir\=./.gem.20230527-67587-94uahr clean

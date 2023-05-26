@@ -1,0 +1,32 @@
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/msgpack-1.5.1/ext/msgpack
+/Users/takashisouhei/.rbenv/versions/3.1.2/bin/ruby extconf.rb
+checking for ruby/st.h... yes
+checking for st.h... no
+checking for rb_enc_interned_str() in ruby.h... yes
+creating Makefile
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/msgpack-1.5.1/ext/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-l6yipw sitelibdir\=./.gem.20230527-67587-l6yipw clean
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/msgpack-1.5.1/ext/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-l6yipw sitelibdir\=./.gem.20230527-67587-l6yipw
+compiling buffer.c
+compiling buffer_class.c
+compiling extension_value_class.c
+compiling factory_class.c
+compiling packer.c
+compiling packer_class.c
+compiling packer_ext_registry.c
+compiling rbinit.c
+compiling rmem.c
+compiling unpacker.c
+compiling unpacker_class.c
+compiling unpacker_ext_registry.c
+linking shared-object msgpack/msgpack.bundle
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/msgpack-1.5.1/ext/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-l6yipw sitelibdir\=./.gem.20230527-67587-l6yipw install
+/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20230527-67587-l6yipw/msgpack
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/msgpack-1.5.1/ext/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-l6yipw sitelibdir\=./.gem.20230527-67587-l6yipw clean

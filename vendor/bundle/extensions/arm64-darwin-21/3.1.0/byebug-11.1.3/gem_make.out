@@ -1,0 +1,22 @@
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/byebug-11.1.3/ext/byebug
+/Users/takashisouhei/.rbenv/versions/3.1.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-rzdfoz sitelibdir\=./.gem.20230527-67587-rzdfoz clean
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-rzdfoz sitelibdir\=./.gem.20230527-67587-rzdfoz
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-rzdfoz sitelibdir\=./.gem.20230527-67587-rzdfoz install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20230527-67587-rzdfoz/byebug
+
+current directory: /Users/takashisouhei/Desktop/Git/shortcutter/vendor/bundle/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= sitearchdir\=./.gem.20230527-67587-rzdfoz sitelibdir\=./.gem.20230527-67587-rzdfoz clean
